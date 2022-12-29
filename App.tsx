@@ -1,8 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "./screens/home";
+
+import HomeScreen from "./screens/home-screen";
+import AboutScreen from "./screens/about-screen";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -11,9 +12,10 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name='Home'
-          options={{ headerShown: false }}
-          component={Home}
+          // options={{ headerShown: false }}
+          component={HomeScreen}
         />
+        <Stack.Screen name='About' component={AboutScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
