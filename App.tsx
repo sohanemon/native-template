@@ -3,11 +3,11 @@ import { Text, View } from "react-native";
 
 export default function App() {
   return (
-    <View>
-      <Text className='text-7xl'>
+    <View className='p-4'>
+      <StatusBar style='auto' />
+      <Text className='text-xl mt-10'>
         Open up App.tsx to start working on your app!
       </Text>
-      <StatusBar style='auto' />
     </View>
   );
 }
