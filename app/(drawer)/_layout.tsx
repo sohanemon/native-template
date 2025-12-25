@@ -49,7 +49,10 @@ function DrawerLayout() {
 				options={{
 					headerTitle: "Tabs",
 					drawerLabel: ({ color, focused }) => (
-						<Text style={{ color: focused ? color : themeColorForeground }}>
+						<Text
+							className="bg-red-500"
+							style={{ color: focused ? color : themeColorForeground }}
+						>
 							Tabs
 						</Text>
 					),
@@ -59,17 +62,6 @@ function DrawerLayout() {
 							size={size}
 							color={focused ? color : themeColorForeground}
 						/>
-					),
-					headerRight: () => (
-						<Link href="/modal" asChild>
-							<Pressable className="mr-4">
-								<Ionicons
-									name="add-outline"
-									size={24}
-									color={themeColorForeground}
-								/>
-							</Pressable>
-						</Link>
 					),
 				}}
 			/>
