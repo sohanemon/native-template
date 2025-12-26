@@ -1,9 +1,9 @@
 import { HeroUINativeProvider } from "heroui-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
-import { AppThemeProvider } from "@/contexts/app-theme-context";
 import { uiConfig } from "../config/ui";
 import { ReactQuery } from "../trpc/react-query";
+import { AppThemeProvider } from "./app-theme-context";
 
 function CoreProviders({ children }: { children: React.ReactNode }) {
 	return (

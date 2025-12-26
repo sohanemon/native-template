@@ -9,7 +9,6 @@
 		"ignoreUnknown": false,
 		"includes": [
 			"**",
-			"!**/.next",
 			"!**/dist",
 			"!**/.turbo",
 			"!**/dev-dist",
@@ -48,6 +47,9 @@
 						"functions": ["clsx", "cva", "cn"]
 					}
 				}
+			},
+			"suspicious": {
+				"noDuplicateCustomProperties": "off"
 			},
 			"style": {
 				"noParameterAssign": "error",
