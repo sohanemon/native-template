@@ -6,7 +6,7 @@ const config = getDefaultConfig(__dirname);
 
 const uniwindConfig = withUniwindConfig(config, {
 	cssEntryFile: "./styles/global.css",
-	dtsFile: "./uniwind-types.d.ts",
+	dtsFile: "./types/uniwind-types.d.ts",
 });
 
 module.exports = uniwindConfig;

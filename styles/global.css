@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "uniwind";
 @import "heroui-native/styles";
-/* @import "./colors.css"; */
-
-@source "../node_modules/heroui-native/lib";
+@import "./sources.css";
+@import "./theme.css";
