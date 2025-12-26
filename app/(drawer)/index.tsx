@@ -7,12 +7,12 @@ import { Typography } from "@/components/ui/typography";
 import { api } from "@/lib/trpc/api";
 
 export default function Home() {
-	const { isLoading, data } = api.healthCheck.useQuery();
+	const { isLoading, data } = api.healthcheck.check.useQuery();
 	const mutedColor = useThemeColor("muted");
 	const successColor = useThemeColor("success");
 	const dangerColor = useThemeColor("danger");
 
-	const isConnected = data === "OK";
+	const isConnected = data?.status === "OK";
 
 	return (
 		<Container className="p-6">
