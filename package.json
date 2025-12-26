@@ -11,7 +11,6 @@
 		"ios": "expo run:ios",
 		"web": "expo start --web",
 		"prepare": "husky",
-		"generate:colors": "./lib/scripts/generate-theme-aliases.sh",
 		"postinstall": "echo 'pi'",
 		"predev": "bun run postinstall",
 		"prebuild": "bun run postinstall; expo prebuild"
