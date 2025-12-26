@@ -16,14 +16,14 @@ export default function Home() {
 	return (
 		<Container className="p-6">
 			<View className="mb-6 py-4">
-				<Text className="mb-2 font-bold text-4xl text-foreground">
+				<Text className="mb-2 font-bold text-4xl text-red-500">
 					Native Template
 				</Text>
 			</View>
 
 			<Card variant="secondary" className="p-6">
 				<View className="mb-4 flex-row items-center justify-between">
-					<Card.Title>System Status</Card.Title>
+					<Card.Title className="bg-red-500 text-7xl">System Status</Card.Title>
 					<Chip
 						variant="secondary"
 						color={isConnected ? "success" : "danger"}

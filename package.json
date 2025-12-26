@@ -49,7 +49,7 @@
 		"superjson": "^2.2.6",
 		"tailwind-merge": "^3.4.0",
 		"tailwind-variants": "3.2.2",
-		"tailwindcss": "~4.1.18",
+		"tailwindcss": "^4.1.18",
 		"uniwind": "^1.2.2",
 		"zod": "^4.2.1"
 	},

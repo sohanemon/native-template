@@ -1,4 +1,4 @@
-import "@/global.css";
+import "@/styles/global.css";
 import { Stack } from "expo-router";
 import { Providers } from "@/lib/context/providers";
 

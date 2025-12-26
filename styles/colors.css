@@ -1,0 +1,128 @@
+:root {
+	--background: oklch(0.9702 0 0);
+	--foreground: oklch(0.2137 0.0198 248.77);
+	--color-foreground: oklch(0.2137 0.0198 248.77);
+	--background-alt: oklch(1 0 90);
+	--background-dark: oklch(20.8% 0.042 265.755);
+	--foreground-dark: oklch(0.97 0 248);
+	--light: oklch(0.95 0.01 248);
+
+	--primary: var(--foreground);
+	--primary-gradient-from: oklch(0.7709 0.1699 62.47);
+	--primary-gradient-to: oklch(0.6888 0.2022 36.99);
+	--primary-foreground: oklch(1 0 0);
+
+	--secondary: oklch(0.5297 0.1261 244.87);
+	--secondary-foreground: oklch(1 0 90);
+
+	--tertiary: oklch(55.8% 0.288 302.321);
+	--tertiary-foreground: oklch(1 0 90);
+
+	--card: oklch(1 0 90);
+	--card-foreground: oklch(0 0 0);
+
+	--popover: oklch(0.41 0.03 255);
+	--popover-foreground: oklch(1 0 90);
+
+	--accent: oklch(0.6888 0.2022 36.99);
+	--accent-foreground: oklch(1 0 90);
+
+	--success: oklch(0.69 0.14 161);
+	--success-light: oklch(0.86 0.13 155);
+	--success-rich: oklch(0.54 0.1 174);
+	--success-foreground: oklch(1 0 90);
+
+	--destructive: oklch(0.68 0.2 24);
+	--destructive-foreground: oklch(1 0 90);
+
+	--warning: oklch(0.8 0.17 74);
+	--warning-rich: oklch(0.67 0.16 57);
+	--warning-foreground: oklch(0.28 0.03 251);
+
+	--table-head: oklch(0.36 0.02 254);
+	--table-body: oklch(0.25 0.02 252);
+	--table-tab: oklch(0.2 0.01 262);
+
+	--brand-keyword: oklch(0.69 0.16 56);
+	--brand-keyword-alt: oklch(0.3 0.03 253);
+	--brand-amazon: oklch(0.84 0.13 72);
+	--brand-stripe: #635bff;
+
+	--muted: oklch(0.4819 0 0);
+	--muted-foreground: oklch(0.3581 0.0211 274.23);
+
+	--border: oklch(0.91 0.01 254);
+	--scrollbar: oklch(0.91 0.01 254);
+	--input: oklch(0.91 0.01 248);
+
+	--ring: var(--accent);
+
+	--sidebar: oklch(1 0 90);
+	--sidebar-foreground: hsl(240 5.3% 26.1%);
+	--sidebar-primary: hsl(240 5.9% 10%);
+	--sidebar-primary-foreground: hsl(0 0% 98%);
+	--sidebar-accent: hsl(240 4.8% 95.9%);
+	--sidebar-accent-foreground: hsl(240 5.9% 10%);
+	--sidebar-border: hsl(220 13% 91%);
+	--sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-background-alt: var(--background-alt);
+	--color-background-dark: var(--background-dark);
+	--color-foreground-dark: var(--foreground-dark);
+	--color-light: var(--light);
+	--color-primary: var(--primary);
+	--color-primary-gradient-from: var(--primary-gradient-from);
+	--color-primary-gradient-to: var(--primary-gradient-to);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-tertiary: var(--tertiary);
+	--color-tertiary-foreground: var(--tertiary-foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-success: var(--success);
+	--color-success-light: var(--success-light);
+	--color-success-rich: var(--success-rich);
+	--color-success-foreground: var(--success-foreground);
+	--color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
+	--color-warning: var(--warning);
+	--color-warning-rich: var(--warning-rich);
+	--color-warning-foreground: var(--warning-foreground);
+	--color-table-head: var(--table-head);
+	--color-table-body: var(--table-body);
+	--color-table-tab: var(--table-tab);
+	--color-brand-keyword: var(--brand-keyword);
+	--color-brand-keyword-alt: var(--brand-keyword-alt);
+	--color-brand-amazon: var(--brand-amazon);
+	--color-brand-stripe: var(--brand-stripe);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-border: var(--border);
+	--color-scrollbar: var(--scrollbar);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-sidebar: var(--sidebar);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer theme {
+	:root {
+		@variant dark {
+			--color-foreground: oklch(0.97 0 248);
+		}
+	}
+}
