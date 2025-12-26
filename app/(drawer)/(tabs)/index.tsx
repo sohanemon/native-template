@@ -1,5 +1,5 @@
 import { Card } from "heroui-native";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 import { Container } from "@/components/container";
 

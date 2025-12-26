@@ -2,6 +2,7 @@ import { HeroUINativeProvider } from "heroui-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { AppThemeProvider } from "@/contexts/app-theme-context";
+import { uiConfig } from "../config/ui";
 import { ReactQuery } from "../trpc/react-query";
 
 function CoreProviders({ children }: { children: React.ReactNode }) {
@@ -28,7 +29,9 @@ export function Providers({
 	return (
 		<CoreProviders>
 			<AppThemeProvider>
-				<HeroUINativeProvider>{children}</HeroUINativeProvider>
+				<HeroUINativeProvider config={uiConfig}>
+					{children}
+				</HeroUINativeProvider>
 			</AppThemeProvider>
 		</CoreProviders>
 	);

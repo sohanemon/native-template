@@ -1,8 +1,9 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Card, Chip, useThemeColor } from "heroui-native";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 import { Container } from "@/components/container";
+import { Typography } from "@/components/ui/typography";
 import { api } from "@/lib/trpc/api";
 
 export default function Home() {
@@ -16,7 +17,9 @@ export default function Home() {
 	return (
 		<Container className="p-6">
 			<View className="mb-6 py-4">
-				<Text className="mb-2 font-bold text-4xl">Native Template</Text>
+				<Typography variant="h1" className="mb-2">
+					Native Template
+				</Typography>
 			</View>
 
 			<Card variant="secondary" className="p-6">
@@ -36,9 +39,9 @@ export default function Home() {
 							className={`mr-3 h-3 w-3 rounded-full ${isConnected ? "bg-success" : "bg-muted"}`}
 						/>
 						<View className="flex-1">
-							<Text className="mb-1 font-medium text-foreground">
+							<Typography variant="large" className="mb-1">
 								TRPC Backend
-							</Text>
+							</Typography>
 							<Card.Description>
 								{isLoading
 									? "Checking connection..."

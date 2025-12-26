@@ -1,7 +1,6 @@
 import type { QueryClient } from "@tanstack/react-query";
-import { httpBatchLink, httpLink, loggerLink } from "@trpc/client";
+import { httpBatchLink, loggerLink } from "@trpc/client";
 import { useState } from "react";
-import SuperJSON from "superjson";
 import { transformer } from "../utils";
 import { api } from "./api";
 

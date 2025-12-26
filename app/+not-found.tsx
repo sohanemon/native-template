@@ -1,8 +1,9 @@
 import { Link, Stack } from "expo-router";
 import { Card } from "heroui-native";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
 
 import { Container } from "@/components/container";
+import { Typography } from "@/components/ui/typography";
 
 export default function NotFoundScreen() {
 	return (
@@ -11,7 +12,9 @@ export default function NotFoundScreen() {
 			<Container>
 				<View className="flex-1 items-center justify-center p-6">
 					<Card variant="secondary" className="max-w-md items-center p-8">
-						<Text className="mb-4 text-6xl">🤔</Text>
+						<Typography variant="h1" className="mb-4">
+							🤔
+						</Typography>
 						<Card.Title className="mb-2 text-center text-2xl">
 							Page Not Found
 						</Card.Title>
@@ -20,9 +23,9 @@ export default function NotFoundScreen() {
 						</Card.Description>
 						<Link href="/" asChild>
 							<Pressable className="rounded-lg bg-accent px-6 py-3 active:opacity-70">
-								<Text className="font-medium text-accent-foreground text-base">
+								<Typography variant="small" className="text-accent-foreground">
 									Go to Home
-								</Text>
+								</Typography>
 							</Pressable>
 						</Link>
 					</Card>
