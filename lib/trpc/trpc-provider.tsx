@@ -21,7 +21,7 @@ export function TRPCReactProvider({
 				}),
 				httpBatchLink({
 					transformer,
-					url: "http://localhost:8081/trpc",
+					url: "https://native-template.vercel.app/trpc",
 				}),
 			],
 		}),

@@ -1,4 +1,5 @@
 {
+	"$schema": "https://openapi.vercel.sh/vercel.json",
 	"buildCommand": "expo export -p web",
 	"outputDirectory": "dist/client",
 	"functions": {
