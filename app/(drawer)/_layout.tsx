@@ -51,7 +51,6 @@ function DrawerLayout() {
 					headerTitle: "Tabs",
 					drawerLabel: ({ color, focused }) => (
 						<Typography
-							className="bg-red-500"
 							style={{ color: focused ? color : themeColorForeground }}
 						>
 							Tabs

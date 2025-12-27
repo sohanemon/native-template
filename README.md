@@ -86,7 +86,3 @@ A comprehensive React Native template built with Expo, featuring full-stack type
 
 This template is configured for deployment on Vercel with automatic API routes and serverless functions. Update the `EXPO_PUBLIC_TRPC_SERVER` environment variable for production API endpoints.
 
-## 📄 License
-
-MIT License - feel free to use this template for your projects!</content>
-<parameter name="filePath">/home/oneman/Code/native-template/README.md
