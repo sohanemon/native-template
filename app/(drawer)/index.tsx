@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Card, Chip, useThemeColor } from "heroui-native";
+import { Button, Card, Chip, useThemeColor, useToast } from "heroui-native";
 import { View } from "react-native";
 
 import { Container } from "@/components/container";
@@ -7,10 +7,12 @@ import { Typography } from "@/components/ui/typography";
 import { api } from "@/lib/trpc/api";
 
 export default function Home() {
-	const { isLoading, data } = api.healthcheck.check.useQuery();
+	const { isLoading, data, refetch, isRefetching } =
+		api.healthcheck.check.useQuery();
 	const mutedColor = useThemeColor("muted");
 	const successColor = useThemeColor("success");
 	const dangerColor = useThemeColor("danger");
+	const { toast } = useToast();
 
 	const isConnected = data?.status === "OK";
 
@@ -66,6 +68,20 @@ export default function Home() {
 					</View>
 				</Card>
 			</Card>
+			<Button
+				onPress={() => {
+					toast.show({
+						variant: "danger",
+						label: "Refreshing",
+						description: "Checking backend status...",
+					});
+					refetch();
+				}}
+				className="mt-5"
+				variant="secondary"
+			>
+				{isRefetching ? "Reloading" : "Reload"}
+			</Button>
 		</Container>
 	);
 }
