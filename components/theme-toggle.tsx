@@ -1,34 +1,64 @@
-import { Ionicons } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
-import { Platform, Pressable } from "react-native";
-import Animated, { FadeOut, ZoomIn } from "react-native-reanimated";
-import { withUniwind } from "uniwind";
-import { useAppTheme } from "@/lib/context/app-theme-context";
+import { Select } from "heroui-native";
+import { Platform } from "react-native";
+import { type ThemeName, useAppTheme } from "@/lib/context/app-theme-context";
+import { Icon } from "./icon";
+import { Typography } from "./ui/typography";
 
-const StyledIonicons = withUniwind(Ionicons);
+const THEME_OPTIONS = [
+	{ value: "light", label: "Light", icon: "sunny" },
+	{ value: "dark", label: "Dark", icon: "moon" },
+	{ value: "catppuccin-mocha", label: "Mocha", icon: "cafe" },
+	{ value: "dracula", label: "Dracula", icon: "skull" },
+	{ value: "nord", label: "Nord", icon: "snow" },
+	{ value: "tokyo-night", label: "Tokyo Night", icon: "moon" },
+] as const;
 
 export function ThemeToggle() {
-	const { toggleTheme, isLight } = useAppTheme();
+	const { currentTheme, setTheme } = useAppTheme();
+
+	const currentThemeOption =
+		THEME_OPTIONS.find((option) => option.value === currentTheme) ||
+		THEME_OPTIONS[0];
 
 	return (
-		<Pressable
-			onPress={() => {
+		<Select
+			value={currentThemeOption}
+			onValueChange={(value) => {
 				if (Platform.OS === "ios") {
 					Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
 				}
-				toggleTheme();
+				setTheme(value?.value as ThemeName);
 			}}
-			className="px-2.5"
 		>
-			{isLight ? (
-				<Animated.View key="moon" entering={ZoomIn} exiting={FadeOut}>
-					<StyledIonicons name="moon" size={20} className="text-foreground" />
-				</Animated.View>
-			) : (
-				<Animated.View key="sun" entering={ZoomIn} exiting={FadeOut}>
-					<StyledIonicons name="sunny" size={20} className="text-foreground" />
-				</Animated.View>
-			)}
-		</Pressable>
+			<Select.Trigger className="border-0 bg-transparent p-2.5">
+				<Icon.Ionicons
+					name={"color-palette-outline"}
+					size={20}
+					className="text-foreground"
+				/>
+			</Select.Trigger>
+			<Select.Portal>
+				<Select.Overlay />
+				<Select.Content width={160} placement="top" align="end">
+					{THEME_OPTIONS.map((theme) => (
+						<Select.Item
+							key={theme.value}
+							value={theme.value}
+							label={theme.label}
+							className="py-2"
+						>
+							<Icon.Ionicons
+								name={theme.icon}
+								size={16}
+								className="mr-2 text-muted"
+							/>
+							<Typography>{theme.label}</Typography>
+							<Select.ItemIndicator />
+						</Select.Item>
+					))}
+				</Select.Content>
+			</Select.Portal>
+		</Select>
 	);
 }
