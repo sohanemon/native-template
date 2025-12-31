@@ -1,8 +1,8 @@
+import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
-
+import { StatusBar } from "react-native";
 import { Uniwind, useCSSVariable, useUniwind } from "uniwind";
 import { useStorageState } from "../hooks/useStorageState";
-import { StatusBar } from "react-native";
 
 export type ThemeName = ReturnType<typeof useUniwind>["theme"];
 
@@ -32,6 +32,8 @@ type ThemeContextType = {
 		[key in (typeof COLORS)[number]]: string;
 	};
 };
+
+SplashScreen.preventAutoHideAsync();
 
 const ThemeContext = React.createContext<ThemeContextType | undefined>(
 	undefined,
@@ -71,11 +73,12 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 	);
 
 	React.useEffect(() => {
-		if (storedTheme && storedTheme !== defaultValue) {
+		if (storedTheme) {
 			Uniwind.setTheme(storedTheme);
 			StatusBar.setBarStyle(
 				!storedTheme.includes("dark") ? "dark-content" : "light-content",
 			);
+			SplashScreen.hide();
 		}
 	}, [storedTheme]);
 

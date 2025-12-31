@@ -48,8 +48,7 @@ export function ThemeSelect() {
 					className="text-foreground text-lg"
 				/>
 			</SelectTrigger>
-			{/* <StatusBar style={"light"} /> */}
-			<SelectContent>
+			<SelectContent alignOffset={10} align="end">
 				<SelectGroup>
 					<SelectLabel>Classic</SelectLabel>
 					{THEMES.slice(0, 2).map((theme) => (
