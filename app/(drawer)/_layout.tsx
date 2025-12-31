@@ -1,5 +1,6 @@
 import { Drawer } from "expo-router/drawer";
 import { useResolveClassNames } from "uniwind";
+import { DrawerToggle } from "@/components/drawer-toggle";
 import { Icon } from "@/components/icon";
 import { ThemeSelect } from "@/components/theme-select";
 import { Text } from "@/components/ui/text";
@@ -19,8 +20,8 @@ function DrawerLayout() {
 				headerStyle: { backgroundColor: colors.background },
 				headerTitleStyle,
 				headerRight: () => <ThemeSelect />,
+				headerLeft: () => <DrawerToggle />,
 				drawerStyle: { backgroundColor: colors.background },
-				drawerIcon: () => <Icon.Ionicons name="chevron-down" />,
 				drawerActiveTintColor: colors.primary,
 				drawerInactiveTintColor: colors.muted,
 			}}
