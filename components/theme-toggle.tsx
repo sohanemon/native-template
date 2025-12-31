@@ -1,6 +1,6 @@
 import * as Haptics from "expo-haptics";
 import { Platform, Text, View } from "react-native";
-import { type ThemeName, useAppTheme } from "@/lib/context/app-theme-context";
+import { type ThemeName, useTheme } from "@/lib/context/theme";
 import { Icon } from "./icon";
 import { Typography } from "./ui/typography";
 
@@ -14,7 +14,7 @@ const THEME_OPTIONS = [
 ] as const;
 
 export function ThemeToggle() {
-	const { currentTheme, setTheme } = useAppTheme();
+	const { currentTheme, setTheme } = useTheme();
 
 	const currentThemeOption =
 		THEME_OPTIONS.find((option) => option.value === currentTheme) ||

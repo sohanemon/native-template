@@ -1,24 +1,30 @@
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Drawer } from "expo-router/drawer";
 import { useCallback } from "react";
-
+import { useCSSVariable, useResolveClassNames } from "uniwind";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Typography } from "@/components/ui/typography";
 
 function DrawerLayout() {
 	const renderThemeToggle = useCallback(() => <ThemeToggle />, []);
 
+	const ds = useResolveClassNames("bg-background");
+	const [themeColorBackground, themeColorForeground] = useCSSVariable([
+		"--background",
+		"--foreground",
+	]) as string[];
+
 	return (
 		<Drawer
 			screenOptions={{
-				headerTintColor: "var(--color-background)",
-				// headerStyle: { backgroundColor: themeColorBackground },
+				headerTintColor: themeColorForeground,
+				headerStyle: { backgroundColor: themeColorBackground },
 				headerTitleStyle: {
 					fontWeight: "600",
-					// color: themeColorForeground,
+					color: themeColorForeground,
 				},
 				headerRight: renderThemeToggle,
-				// drawerStyle: { backgroundColor: themeColorBackground },
+				drawerStyle: { backgroundColor: themeColorBackground },
 			}}
 		>
 			<Drawer.Screen
@@ -27,7 +33,7 @@ function DrawerLayout() {
 					headerTitle: "Home",
 					drawerLabel: ({ color, focused }) => (
 						<Typography
-						// style={{ color: focused ? color : themeColorForeground }}
+							style={{ color: focused ? color : themeColorForeground }}
 						>
 							Home
 						</Typography>
@@ -36,7 +42,7 @@ function DrawerLayout() {
 						<Ionicons
 							name="home-outline"
 							size={size}
-							// color={focused ? color : themeColorForeground}
+							color={focused ? color : themeColorForeground}
 						/>
 					),
 				}}
@@ -47,7 +53,7 @@ function DrawerLayout() {
 					headerTitle: "Tabs",
 					drawerLabel: ({ color, focused }) => (
 						<Typography
-						// style={{ color: focused ? color : themeColorForeground }}
+							style={{ color: focused ? color : themeColorForeground }}
 						>
 							Tabs
 						</Typography>
@@ -56,7 +62,7 @@ function DrawerLayout() {
 						<MaterialIcons
 							name="border-bottom"
 							size={size}
-							// color={focused ? color : themeColorForeground}
+							color={focused ? color : themeColorForeground}
 						/>
 					),
 				}}

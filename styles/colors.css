@@ -1,7 +1,7 @@
 @layer theme {
 	:root {
 		@variant light {
-			--background: oklch(0.9911 0 0);
+			--background: red;
 			--foreground: oklch(0.2046 0 0);
 			--surface: oklch(0.98 0 0);
 			--surface-foreground: oklch(0.2046 0 0);

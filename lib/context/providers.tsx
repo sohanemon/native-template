@@ -3,7 +3,7 @@ import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaListener } from "react-native-safe-area-context";
 import { Uniwind } from "uniwind";
 import { ReactQuery } from "../trpc/react-query";
-import { AppThemeProvider } from "./app-theme-context";
+import { ThemeProvider } from "./theme";
 
 function CoreProviders({ children }: { children: React.ReactNode }) {
 	return (
@@ -33,7 +33,7 @@ export function Providers({
 			}}
 		>
 			<CoreProviders>
-				<AppThemeProvider>{children}</AppThemeProvider>
+				<ThemeProvider>{children}</ThemeProvider>
 			</CoreProviders>
 		</SafeAreaListener>
 	);
