@@ -7,7 +7,7 @@ const config = getDefaultConfig(__dirname);
 const uniwindConfig = withUniwindConfig(config, {
 	cssEntryFile: "./styles/global.css",
 	dtsFile: "./types/uniwind-types.d.ts",
-	extraThemes: ["nord", "dracula", "tokyo-night", "catppuccin-mocha"],
+	extraThemes: [],
 });
 
 module.exports = uniwindConfig;

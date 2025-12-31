@@ -1,24 +1,28 @@
 import * as Haptics from "expo-haptics";
-import { Platform, Text, View } from "react-native";
-import { type ThemeName, useTheme } from "@/lib/context/theme";
+import { Uniwind, useUniwind } from "uniwind";
+import { Button } from "@/components/ui/button";
 import { Icon } from "./icon";
-import { Typography } from "./ui/typography";
-
-const THEME_OPTIONS = [
-	{ value: "light", label: "Light", icon: "sunny" },
-	{ value: "dark", label: "Dark", icon: "moon" },
-	{ value: "catppuccin-mocha", label: "Mocha", icon: "cafe" },
-	{ value: "dracula", label: "Dracula", icon: "skull" },
-	{ value: "nord", label: "Nord", icon: "snow" },
-	{ value: "tokyo-night", label: "Tokyo Night", icon: "moon" },
-] as const;
 
 export function ThemeToggle() {
-	const { currentTheme, setTheme } = useTheme();
+	const { theme } = useUniwind();
 
-	const currentThemeOption =
-		THEME_OPTIONS.find((option) => option.value === currentTheme) ||
-		THEME_OPTIONS[0];
+	function toggleColorScheme() {
+		Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+		const newTheme = theme === "dark" ? "light" : "dark";
+		Uniwind.setTheme(newTheme);
+	}
 
-	return <Text>hello</Text>;
+	return (
+		<Button
+			onPress={toggleColorScheme}
+			variant="ghost"
+			size="icon"
+			className="web:mr-5 size-9 rounded-full"
+		>
+			<Icon.Ionicons
+				name="color-palette-outline"
+				className="size-5 text-foreground text-lg"
+			/>
+		</Button>
+	);
 }

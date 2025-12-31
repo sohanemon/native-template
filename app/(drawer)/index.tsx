@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { View } from "react-native";
 
 import { Container } from "@/components/container";
-import { Typography } from "@/components/ui/typography";
+import { Text } from "@/components/ui/text";
 import { api } from "@/lib/trpc/api";
 
 export default function Home() {
@@ -14,9 +14,9 @@ export default function Home() {
 	return (
 		<Container className="p-6">
 			<View className="mb-6 py-4">
-				<Typography variant="h1" className="mb-2">
+				<Text variant="h1" className="mb-2">
 					Native Template
-				</Typography>
+				</Text>
 			</View>
 
 			{/* <Card variant="secondary" className="p-6"> */}
@@ -36,9 +36,9 @@ export default function Home() {
 			{/* 				className={`mr-3 h-3 w-3 rounded-full ${isConnected ? "bg-success" : "bg-muted"}`} */}
 			{/* 			/> */}
 			{/* 			<View className="flex-1"> */}
-			{/* 				<Typography variant="large" className="mb-1"> */}
+			{/* 				<Text variant="large" className="mb-1"> */}
 			{/* 					TRPC Backend */}
-			{/* 				</Typography> */}
+			{/* 				</Text> */}
 			{/* 				<Card.Description> */}
 			{/* 					{isLoading */}
 			{/* 						? "Checking connection..." */}

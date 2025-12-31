@@ -2,7 +2,7 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Drawer } from "expo-router/drawer";
 import { useCallback } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Typography } from "@/components/ui/typography";
+import { Text } from "@/components/ui/text";
 import { useTheme } from "@/lib/context/theme";
 import { useResolveClassNames } from "uniwind";
 
@@ -29,9 +29,9 @@ function DrawerLayout() {
 				options={{
 					headerTitle: "Home",
 					drawerLabel: ({ color, focused }) => (
-						<Typography style={{ color: focused ? color : colors.foreground }}>
+						<Text style={{ color: focused ? color : colors.foreground }}>
 							Home
-						</Typography>
+						</Text>
 					),
 					drawerIcon: ({ size, color, focused }) => (
 						<Ionicons
@@ -47,9 +47,9 @@ function DrawerLayout() {
 				options={{
 					headerTitle: "Tabs",
 					drawerLabel: ({ color, focused }) => (
-						<Typography style={{ color: focused ? color : colors.foreground }}>
+						<Text style={{ color: focused ? color : colors.foreground }}>
 							Tabs
-						</Typography>
+						</Text>
 					),
 					drawerIcon: ({ size, color, focused }) => (
 						<MaterialIcons
