@@ -1,9 +1,7 @@
 import * as SelectPrimitive from "@rn-primitives/select";
 import * as React from "react";
 import { Platform, ScrollView, StyleSheet, View } from "react-native";
-import { FadeIn, FadeOut } from "react-native-reanimated";
 import { FullWindowOverlay as RNFullWindowOverlay } from "react-native-screens";
-import { NativeOnlyAnimatedView } from "@/components/ui/native-only-animated-view";
 import { TextClassContext } from "@/components/ui/text";
 import { cn } from "@/lib/utils";
 import { Icon } from "../icon";
@@ -53,7 +51,7 @@ function SelectTrigger({
 		<SelectPrimitive.Trigger
 			ref={ref}
 			className={cn(
-				"flex h-10 flex-row items-center justify-between gap-2 rounded-md border border-input bg-background px-3 py-2 shadow-black/5 shadow-sm sm:h-9 dark:bg-input/30 dark:active:bg-input/50",
+				"flex h-10 flex-row items-center justify-between gap-2 rounded-md border border-input bg-background px-3 py-2 shadow-black/5 hover:shadow-sm sm:h-9 dark:bg-input/30 dark:active:bg-input/50",
 				Platform.select({
 					web: "w-fit whitespace-nowrap text-sm outline-none transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 dark:hover:bg-input/50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
 				}),
@@ -96,52 +94,46 @@ function SelectContent({
 					style={Platform.select({ native: StyleSheet.absoluteFill })}
 				>
 					<TextClassContext.Provider value="text-popover-foreground">
-						<NativeOnlyAnimatedView
-							className="z-50"
-							entering={FadeIn}
-							exiting={FadeOut}
-						>
-							<SelectPrimitive.Content
-								className={cn(
-									"relative z-50 min-w-32 rounded-md border border-border bg-popover shadow-black/5 shadow-md",
+						<SelectPrimitive.Content
+							className={cn(
+								"relative z-50 min-w-32 rounded-md border border-border bg-popover shadow-black/5 shadow-md",
+								Platform.select({
+									web: cn(
+										"fade-in-0 zoom-in-95 max-h-52 origin-(--radix-select-content-transform-origin) animate-in overflow-y-auto overflow-x-hidden",
+										props.side === "bottom" && "slide-in-from-top-2",
+										props.side === "top" && "slide-in-from-bottom-2",
+									),
+									native: "p-1",
+								}),
+								position === "popper" &&
 									Platform.select({
 										web: cn(
-											"fade-in-0 zoom-in-95 max-h-52 origin-(--radix-select-content-transform-origin) animate-in overflow-y-auto overflow-x-hidden",
-											props.side === "bottom" && "slide-in-from-top-2",
-											props.side === "top" && "slide-in-from-bottom-2",
+											props.side === "bottom" && "translate-y-1",
+											props.side === "top" && "-translate-y-1",
 										),
-										native: "p-1",
 									}),
+								className,
+							)}
+							position={position}
+							{...props}
+						>
+							<SelectScrollUpButton />
+							<SelectPrimitive.Viewport
+								className={cn(
+									"p-1",
 									position === "popper" &&
-										Platform.select({
-											web: cn(
-												props.side === "bottom" && "translate-y-1",
-												props.side === "top" && "-translate-y-1",
-											),
-										}),
-									className,
+										cn(
+											"w-full",
+											Platform.select({
+												web: "h-(--radix-select-trigger-height) min-w-(--radix-select-trigger-width)",
+											}),
+										),
 								)}
-								position={position}
-								{...props}
 							>
-								<SelectScrollUpButton />
-								<SelectPrimitive.Viewport
-									className={cn(
-										"p-1",
-										position === "popper" &&
-											cn(
-												"w-full",
-												Platform.select({
-													web: "h-(--radix-select-trigger-height) min-w-(--radix-select-trigger-width)",
-												}),
-											),
-									)}
-								>
-									{children}
-								</SelectPrimitive.Viewport>
-								<SelectScrollDownButton />
-							</SelectPrimitive.Content>
-						</NativeOnlyAnimatedView>
+								{children}
+							</SelectPrimitive.Viewport>
+							<SelectScrollDownButton />
+						</SelectPrimitive.Content>
 					</TextClassContext.Provider>
 				</SelectPrimitive.Overlay>
 			</FullWindowOverlay>

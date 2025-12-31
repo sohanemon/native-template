@@ -1,15 +1,13 @@
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Drawer } from "expo-router/drawer";
-import { useCallback } from "react";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { useResolveClassNames } from "uniwind";
+import { ThemeSelect } from "@/components/theme-select";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "@/lib/context/theme";
-import { useResolveClassNames } from "uniwind";
 
 function DrawerLayout() {
-	const renderThemeToggle = useCallback(() => <ThemeToggle />, []);
 	const { colors } = useTheme();
-	console.info("⚡[_layout.tsx:12] colors:", colors);
+
 	const headerTitleStyle = useResolveClassNames(
 		"font-semibold text-foreground",
 	);
@@ -20,7 +18,7 @@ function DrawerLayout() {
 				headerTintColor: colors.foreground,
 				headerStyle: { backgroundColor: colors.background },
 				headerTitleStyle,
-				headerRight: renderThemeToggle,
+				headerRight: () => <ThemeSelect />,
 				drawerStyle: { backgroundColor: colors.background },
 			}}
 		>

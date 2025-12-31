@@ -1,7 +1,5 @@
 import * as Haptics from "expo-haptics";
-import { View } from "react-native";
-import { Uniwind, useUniwind } from "uniwind";
-import { Button } from "@/components/ui/button";
+import { useTheme } from "@/lib/context/theme";
 import { Icon } from "./icon";
 import {
 	Select,
@@ -10,20 +8,29 @@ import {
 	SelectItem,
 	SelectLabel,
 	SelectTrigger,
-	SelectValue,
 } from "./ui/select";
 
-export function ThemeToggle() {
-	const { theme } = useUniwind();
+export function ThemeSelect() {
+	const { currentTheme, setTheme } = useTheme();
 
-	function toggleColorScheme() {
+	function handleThemeChange(option?: { value: string; label: string }) {
 		Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
-		const newTheme = theme === "dark" ? "light" : "dark";
-		Uniwind.setTheme(newTheme);
+		if (
+			option?.value &&
+			(option?.value === "light" || option?.value === "dark")
+		) {
+			setTheme(option.value);
+		}
 	}
 
 	return (
-		<Select onValueChange={toggleColorScheme}>
+		<Select
+			onValueChange={handleThemeChange}
+			value={{
+				value: currentTheme,
+				label: currentTheme === "light" ? "Light" : "Dark",
+			}}
+		>
 			<SelectTrigger icon={false} className="w-fit border-0">
 				<Icon.Ionicons
 					name="color-palette-outline"

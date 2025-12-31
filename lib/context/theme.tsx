@@ -1,6 +1,13 @@
 import type React from "react";
-import { createContext, useCallback, useContext, useMemo } from "react";
+import {
+	createContext,
+	useCallback,
+	useContext,
+	useEffect,
+	useMemo,
+} from "react";
 import { Uniwind, useCSSVariable, useUniwind } from "uniwind";
+import { useStorageState } from "../hooks/useStorageState";
 
 export type ThemeName = ReturnType<typeof useUniwind>["theme"];
 
@@ -9,7 +16,6 @@ const COLORS = ["foreground", "background", "accent", "muted"] as const;
 type ThemeContextType = {
 	currentTheme: ThemeName;
 	setTheme: (theme: ThemeName) => void;
-	toggleTheme: () => void;
 	colors: {
 		[key in (typeof COLORS)[number]]: string;
 	};
@@ -18,7 +24,13 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-	const { theme } = useUniwind();
+	const { theme: defaultValue } = useUniwind();
+	const [storedTheme, setStoredTheme] = useStorageState<ThemeName>(
+		"app-theme",
+		{
+			defaultValue,
+		},
+	);
 
 	const colorValues = useCSSVariable(COLORS.map((c) => `--color-${c}`));
 
@@ -37,22 +49,26 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 		[colorValues],
 	);
 
-	const setTheme = useCallback((newTheme: ThemeName) => {
-		Uniwind.setTheme(newTheme);
-	}, []);
+	const setTheme = useCallback(
+		async (newTheme: ThemeName) => {
+			await setStoredTheme(newTheme);
+		},
+		[setStoredTheme],
+	);
 
-	const toggleTheme = useCallback(() => {
-		Uniwind.setTheme(theme === "light" ? "dark" : "light");
-	}, [theme]);
+	useEffect(() => {
+		if (storedTheme) {
+			Uniwind.setTheme(storedTheme);
+		}
+	}, [storedTheme]);
 
 	const value = useMemo(
 		() => ({
-			currentTheme: theme,
+			currentTheme: storedTheme,
 			setTheme,
-			toggleTheme,
 			colors,
 		}),
-		[theme, setTheme, toggleTheme, colors],
+		[storedTheme, setTheme, colors],
 	);
 
 	return (
