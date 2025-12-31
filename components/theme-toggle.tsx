@@ -1,7 +1,17 @@
 import * as Haptics from "expo-haptics";
+import { View } from "react-native";
 import { Uniwind, useUniwind } from "uniwind";
 import { Button } from "@/components/ui/button";
 import { Icon } from "./icon";
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectLabel,
+	SelectTrigger,
+	SelectValue,
+} from "./ui/select";
 
 export function ThemeToggle() {
 	const { theme } = useUniwind();
@@ -13,16 +23,20 @@ export function ThemeToggle() {
 	}
 
 	return (
-		<Button
-			onPress={toggleColorScheme}
-			variant="ghost"
-			size="icon"
-			className="web:mr-5 size-9 rounded-full"
-		>
-			<Icon.Ionicons
-				name="color-palette-outline"
-				className="size-5 text-foreground text-lg"
-			/>
-		</Button>
+		<Select onValueChange={toggleColorScheme}>
+			<SelectTrigger icon={false} className="w-fit border-0">
+				<Icon.Ionicons
+					name="color-palette-outline"
+					className="text-foreground text-lg"
+				/>
+			</SelectTrigger>
+			<SelectContent>
+				<SelectGroup>
+					<SelectLabel>Themes</SelectLabel>
+					<SelectItem label="Light" value="light" />
+					<SelectItem label="Dark" value="dark" />
+				</SelectGroup>
+			</SelectContent>
+		</Select>
 	);
 }

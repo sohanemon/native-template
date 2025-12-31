@@ -40,12 +40,14 @@ function SelectTrigger({
 	ref,
 	className,
 	children,
+	icon = true,
 	size = "default",
 	...props
 }: SelectPrimitive.TriggerProps &
 	React.RefAttributes<SelectPrimitive.TriggerRef> & {
 		children?: React.ReactNode;
 		size?: "default" | "sm";
+		icon?: boolean;
 	}) {
 	return (
 		<SelectPrimitive.Trigger
@@ -62,11 +64,13 @@ function SelectTrigger({
 			{...props}
 		>
 			{children}
-			<Icon.Ionicons
-				name="chevron-down"
-				aria-hidden={true}
-				className="size-4 text-muted-foreground"
-			/>
+			{icon && (
+				<Icon.Ionicons
+					name="chevron-down"
+					aria-hidden={true}
+					className="size-4 text-muted-foreground"
+				/>
+			)}
 		</SelectPrimitive.Trigger>
 	);
 }
