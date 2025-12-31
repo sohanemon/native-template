@@ -1,16 +1,9 @@
+import { type ClassValue, clsx } from "clsx";
 import superjson from "superjson";
+import { twMerge } from "tailwind-merge";
 
-import { type CnOptions, cnMerge } from "tailwind-variants";
-
-export function cn(...args: CnOptions) {
-	return cnMerge(args)({
-		twMerge: true,
-		twMergeConfig: {
-			classGroups: {
-				opacity: [{ opacity: ["disabled"] }],
-			},
-		},
-	});
+export function cn(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs));
 }
 
 export const transformer = superjson;

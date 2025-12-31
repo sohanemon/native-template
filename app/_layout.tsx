@@ -1,4 +1,5 @@
 import "@/styles/global.css";
+import { PortalHost } from "@rn-primitives/portal";
 import { Stack } from "expo-router";
 import { Providers } from "@/lib/context/providers";
 
@@ -18,6 +19,7 @@ export default function Layout() {
 	return (
 		<Providers>
 			<StackLayout />
+			<PortalHost />
 		</Providers>
 	);
 }

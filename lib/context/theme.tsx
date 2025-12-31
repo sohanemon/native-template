@@ -20,7 +20,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 	const { theme } = useUniwind();
 
-	const colorValues = useCSSVariable(COLORS.map((c) => `--${c}`));
+	const colorValues = useCSSVariable(COLORS.map((c) => `--color-${c}`));
 
 	const colors = useMemo(
 		() =>
