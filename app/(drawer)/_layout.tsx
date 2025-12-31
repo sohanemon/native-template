@@ -1,30 +1,27 @@
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Drawer } from "expo-router/drawer";
 import { useCallback } from "react";
-import { useCSSVariable, useResolveClassNames } from "uniwind";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Typography } from "@/components/ui/typography";
+import { useTheme } from "@/lib/context/theme";
+import { useResolveClassNames } from "uniwind";
 
 function DrawerLayout() {
 	const renderThemeToggle = useCallback(() => <ThemeToggle />, []);
-
-	const ds = useResolveClassNames("bg-background");
-	const [themeColorBackground, themeColorForeground] = useCSSVariable([
-		"--background",
-		"--foreground",
-	]) as string[];
+	const { colors } = useTheme();
+	console.info("⚡[_layout.tsx:12] colors:", colors);
+	const headerTitleStyle = useResolveClassNames(
+		"font-semibold text-foreground",
+	);
 
 	return (
 		<Drawer
 			screenOptions={{
-				headerTintColor: themeColorForeground,
-				headerStyle: { backgroundColor: themeColorBackground },
-				headerTitleStyle: {
-					fontWeight: "600",
-					color: themeColorForeground,
-				},
+				headerTintColor: colors.foreground,
+				headerStyle: { backgroundColor: colors.background },
+				headerTitleStyle,
 				headerRight: renderThemeToggle,
-				drawerStyle: { backgroundColor: themeColorBackground },
+				drawerStyle: { backgroundColor: colors.background },
 			}}
 		>
 			<Drawer.Screen
@@ -32,9 +29,7 @@ function DrawerLayout() {
 				options={{
 					headerTitle: "Home",
 					drawerLabel: ({ color, focused }) => (
-						<Typography
-							style={{ color: focused ? color : themeColorForeground }}
-						>
+						<Typography style={{ color: focused ? color : colors.foreground }}>
 							Home
 						</Typography>
 					),
@@ -42,7 +37,7 @@ function DrawerLayout() {
 						<Ionicons
 							name="home-outline"
 							size={size}
-							color={focused ? color : themeColorForeground}
+							color={focused ? color : colors.foreground}
 						/>
 					),
 				}}
@@ -52,9 +47,7 @@ function DrawerLayout() {
 				options={{
 					headerTitle: "Tabs",
 					drawerLabel: ({ color, focused }) => (
-						<Typography
-							style={{ color: focused ? color : themeColorForeground }}
-						>
+						<Typography style={{ color: focused ? color : colors.foreground }}>
 							Tabs
 						</Typography>
 					),
@@ -62,7 +55,7 @@ function DrawerLayout() {
 						<MaterialIcons
 							name="border-bottom"
 							size={size}
-							color={focused ? color : themeColorForeground}
+							color={focused ? color : colors.foreground}
 						/>
 					),
 				}}

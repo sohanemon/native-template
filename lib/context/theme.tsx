@@ -19,9 +19,23 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 	const { theme } = useUniwind();
-	const colors = useCSSVariable(
-		COLORS.map((c) => `--${c}`),
-	) as unknown as ThemeContextType["colors"];
+
+	const colorValues = useCSSVariable(COLORS.map((c) => `--${c}`));
+
+	const colors = useMemo(
+		() =>
+			COLORS.reduce(
+				(acc, key, index) => {
+					const value = colorValues[index];
+
+					acc[key] = typeof value === "string" ? value : String(value ?? "");
+
+					return acc;
+				},
+				{} as ThemeContextType["colors"],
+			),
+		[colorValues],
+	);
 
 	const setTheme = useCallback((newTheme: ThemeName) => {
 		Uniwind.setTheme(newTheme);
