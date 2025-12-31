@@ -14,7 +14,7 @@ export default function Home() {
 	return (
 		<Container className="p-6">
 			<View className="mb-6 py-4">
-				<Text variant="h1" className="mb-2">
+				<Text variant="h1" className="mb-2 text-primary">
 					Native Template
 				</Text>
 			</View>

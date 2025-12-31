@@ -1,17 +1,29 @@
-import type React from "react";
-import {
-	createContext,
-	useCallback,
-	useContext,
-	useEffect,
-	useMemo,
-} from "react";
+import * as React from "react";
+
 import { Uniwind, useCSSVariable, useUniwind } from "uniwind";
 import { useStorageState } from "../hooks/useStorageState";
+import { StatusBar } from "react-native";
 
 export type ThemeName = ReturnType<typeof useUniwind>["theme"];
 
-const COLORS = ["foreground", "background", "accent", "muted"] as const;
+const COLORS = [
+	"foreground",
+	"background",
+	"accent",
+	"muted",
+	"primary",
+	"primary-foreground",
+	"secondary",
+	"secondary-foreground",
+	"card",
+	"card-foreground",
+	"popover",
+	"popover-foreground",
+	"destructive",
+	"border",
+	"input",
+	"ring",
+] as const;
 
 type ThemeContextType = {
 	currentTheme: ThemeName;
@@ -21,7 +33,9 @@ type ThemeContextType = {
 	};
 };
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = React.createContext<ThemeContextType | undefined>(
+	undefined,
+);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 	const { theme: defaultValue } = useUniwind();
@@ -34,7 +48,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const colorValues = useCSSVariable(COLORS.map((c) => `--color-${c}`));
 
-	const colors = useMemo(
+	const colors = React.useMemo(
 		() =>
 			COLORS.reduce(
 				(acc, key, index) => {
@@ -49,20 +63,23 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 		[colorValues],
 	);
 
-	const setTheme = useCallback(
+	const setTheme = React.useCallback(
 		async (newTheme: ThemeName) => {
 			await setStoredTheme(newTheme);
 		},
 		[setStoredTheme],
 	);
 
-	useEffect(() => {
-		if (storedTheme) {
+	React.useEffect(() => {
+		if (storedTheme && storedTheme !== defaultValue) {
 			Uniwind.setTheme(storedTheme);
+			StatusBar.setBarStyle(
+				!storedTheme.includes("dark") ? "dark-content" : "light-content",
+			);
 		}
 	}, [storedTheme]);
 
-	const value = useMemo(
+	const value = React.useMemo(
 		() => ({
 			currentTheme: storedTheme,
 			setTheme,
@@ -77,7 +94,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 };
 
 export function useTheme() {
-	const context = useContext(ThemeContext);
+	const context = React.useContext(ThemeContext);
 	if (!context) {
 		throw new Error("useTheme must be used within ThemeProvider");
 	}
