@@ -1,13 +1,13 @@
-import { Ionicons } from "@expo/vector-icons";
 import { View } from "react-native";
 
 import { Container } from "@/components/container";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { Text } from "@/components/ui/text";
 import { api } from "@/lib/trpc/api";
+import { Icon } from "@/components/icon";
 
 export default function Home() {
-	const { isLoading, data, refetch, isRefetching } =
-		api.healthcheck.check.useQuery();
+	const { isLoading, data } = api.healthcheck.check.useQuery();
 
 	const isConnected = data?.status === "OK";
 
@@ -19,64 +19,38 @@ export default function Home() {
 				</Text>
 			</View>
 
-			{/* <Card variant="secondary" className="p-6"> */}
-			{/* 	<View className="mb-4 flex-row items-center justify-between"> */}
-			{/* 		<Card.Title>System Status</Card.Title> */}
-			{/* 		<Chip */}
-			{/* 			variant="secondary" */}
-			{/* 			color={isConnected ? "success" : "danger"} */}
-			{/* 			size="sm" */}
-			{/* 		> */}
-			{/* 			<Chip.Label>{isConnected ? "LIVE" : "OFFLINE"}</Chip.Label> */}
-			{/* 		</Chip> */}
-			{/* 	</View> */}
-			{/* 	<Card className="p-4"> */}
-			{/* 		<View className="flex-row items-center"> */}
-			{/* 			<View */}
-			{/* 				className={`mr-3 h-3 w-3 rounded-full ${isConnected ? "bg-success" : "bg-muted"}`} */}
-			{/* 			/> */}
-			{/* 			<View className="flex-1"> */}
-			{/* 				<Text variant="large" className="mb-1"> */}
-			{/* 					TRPC Backend */}
-			{/* 				</Text> */}
-			{/* 				<Card.Description> */}
-			{/* 					{isLoading */}
-			{/* 						? "Checking connection..." */}
-			{/* 						: isConnected */}
-			{/* 							? "Connected to API" */}
-			{/* 							: "API Disconnected"} */}
-			{/* 				</Card.Description> */}
-			{/* 			</View> */}
-			{/* 			{isLoading && ( */}
-			{/* 				<Ionicons name="hourglass-outline" size={20} color={mutedColor} /> */}
-			{/* 			)} */}
-			{/* 			{!isLoading && isConnected && ( */}
-			{/* 				<Ionicons */}
-			{/* 					name="checkmark-circle" */}
-			{/* 					size={20} */}
-			{/* 					color={successColor} */}
-			{/* 				/> */}
-			{/* 			)} */}
-			{/* 			{!isLoading && !isConnected && ( */}
-			{/* 				<Ionicons name="close-circle" size={20} color={dangerColor} /> */}
-			{/* 			)} */}
-			{/* 		</View> */}
-			{/* 	</Card> */}
-			{/* </Card> */}
-			{/* <Button */}
-			{/* 	onPress={() => { */}
-			{/* 		toast.show({ */}
-			{/* 			variant: "danger", */}
-			{/* 			label: "Refreshing", */}
-			{/* 			description: "Checking backend status...", */}
-			{/* 		}); */}
-			{/* 		refetch(); */}
-			{/* 	}} */}
-			{/* 	className="mt-5" */}
-			{/* 	variant="secondary" */}
-			{/* > */}
-			{/* 	{isRefetching ? "Reloading" : "Reload"} */}
-			{/* </Button> */}
+			<Card className="p-6">
+				<View className="mb-4 flex-row items-center justify-between">
+					<CardTitle>System Status</CardTitle>
+					<Text className="text-sm">{isConnected ? "LIVE" : "OFFLINE"}</Text>
+				</View>
+				<View className="flex-row items-center">
+					<View
+						className={`top-2 mr-3 h-3 w-3 self-start rounded-full ${isConnected ? "bg-green-500" : "bg-gray-500"}`}
+					/>
+					<View className="flex-1">
+						<Text variant="large" className="mb-1">
+							TRPC Backend
+						</Text>
+						<CardDescription>
+							{isLoading
+								? "Checking connection..."
+								: isConnected
+									? "Connected to API"
+									: "API Disconnected"}
+						</CardDescription>
+					</View>
+					{isLoading && (
+						<Icon.Ionicons name="hourglass-outline" size={20} color="#9ca3af" />
+					)}
+					{!isLoading && isConnected && (
+						<Icon.Ionicons name="checkmark-circle" size={20} color="#22c55e" />
+					)}
+					{!isLoading && !isConnected && (
+						<Icon.Ionicons name="close-circle" size={20} color="#ef4444" />
+					)}
+				</View>
+			</Card>
 		</Container>
 	);
 }

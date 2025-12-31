@@ -1,22 +1,27 @@
-import { Ionicons } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { Tabs } from "expo-router/tabs";
+import { Icon } from "@/components/icon";
+import { useTheme } from "@/lib/context/theme";
 
 export default function TabLayout() {
+	const { colors } = useTheme();
+
 	return (
 		<Tabs
 			screenOptions={{
 				headerShown: false,
 				headerStyle: {
-					// backgroundColor: color.background,
+					backgroundColor: colors.background,
 				},
-				// headerTintColor: colors.foreground,
+				headerTintColor: colors.foreground,
 				headerTitleStyle: {
-					// color: colors.foreground,
+					color: colors.foreground,
 					fontWeight: "600",
 				},
 				tabBarStyle: {
-					// backgroundColor: color.background,
+					backgroundColor: colors.background,
 				},
+				tabBarActiveTintColor: colors.primary,
+				tabBarInactiveTintColor: colors.foreground + 80,
 			}}
 		>
 			<Tabs.Screen
@@ -24,7 +29,7 @@ export default function TabLayout() {
 				options={{
 					title: "Home",
 					tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-						<Ionicons name="home" size={size} color={color} />
+						<Icon.Feather name="home" size={size} color={color} />
 					),
 				}}
 			/>
@@ -33,7 +38,7 @@ export default function TabLayout() {
 				options={{
 					title: "Explore",
 					tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-						<Ionicons name="compass" size={size} color={color} />
+						<Icon.Feather name="compass" size={size} color={color} />
 					),
 				}}
 			/>

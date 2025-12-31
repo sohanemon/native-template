@@ -1,6 +1,6 @@
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Drawer } from "expo-router/drawer";
 import { useResolveClassNames } from "uniwind";
+import { Icon } from "@/components/icon";
 import { ThemeSelect } from "@/components/theme-select";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "@/lib/context/theme";
@@ -20,6 +20,9 @@ function DrawerLayout() {
 				headerTitleStyle,
 				headerRight: () => <ThemeSelect />,
 				drawerStyle: { backgroundColor: colors.background },
+				drawerIcon: () => <Icon.Ionicons name="chevron-down" />,
+				drawerActiveTintColor: colors.primary,
+				drawerInactiveTintColor: colors.muted,
 			}}
 		>
 			<Drawer.Screen
@@ -32,8 +35,8 @@ function DrawerLayout() {
 						</Text>
 					),
 					drawerIcon: ({ size, color, focused }) => (
-						<Ionicons
-							name="home-outline"
+						<Icon.Feather
+							name="home"
 							size={size}
 							color={focused ? color : colors.foreground}
 						/>
@@ -50,8 +53,8 @@ function DrawerLayout() {
 						</Text>
 					),
 					drawerIcon: ({ size, color, focused }) => (
-						<MaterialIcons
-							name="border-bottom"
+						<Icon.MaterialIcons
+							name="backup-table"
 							size={size}
 							color={focused ? color : colors.foreground}
 						/>
