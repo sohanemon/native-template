@@ -1,5 +1,5 @@
 import type { QueryClient } from "@tanstack/react-query";
-import { httpBatchLink, loggerLink } from "@trpc/client";
+import { httpBatchLink } from "@trpc/client";
 import { useState } from "react";
 import { transformer } from "../utils";
 import { api } from "./api";
@@ -14,11 +14,6 @@ export function TRPCReactProvider({
 	const [trpcClient] = useState(() =>
 		api.createClient({
 			links: [
-				loggerLink({
-					enabled: (op) =>
-						process.env.NODE_ENV === "development" ||
-						(op.direction === "down" && op.result instanceof Error),
-				}),
 				httpBatchLink({
 					transformer,
 					url:

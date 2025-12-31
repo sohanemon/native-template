@@ -1,5 +1,4 @@
 import { Link, Stack } from "expo-router";
-import { Card } from "heroui-native";
 import { Pressable, View } from "react-native";
 
 import { Container } from "@/components/container";
@@ -11,24 +10,24 @@ export default function NotFoundScreen() {
 			<Stack.Screen options={{ title: "Oops!" }} />
 			<Container>
 				<View className="flex-1 items-center justify-center p-6">
-					<Card variant="secondary" className="max-w-md items-center p-8">
-						<Typography variant="h1" className="mb-4">
-							🤔
-						</Typography>
-						<Card.Title className="mb-2 text-center text-2xl">
-							Page Not Found
-						</Card.Title>
-						<Card.Description className="mb-6 text-center">
-							Sorry, the page you're looking for doesn't exist.
-						</Card.Description>
-						<Link href="/" asChild>
-							<Pressable className="rounded-lg bg-accent px-6 py-3 active:opacity-70">
-								<Typography variant="small" className="text-accent-foreground">
-									Go to Home
-								</Typography>
-							</Pressable>
-						</Link>
-					</Card>
+					{/* <Card variant="secondary" className="max-w-md items-center p-8"> */}
+					{/* 	<Typography variant="h1" className="mb-4"> */}
+					{/* 		🤔 */}
+					{/* 	</Typography> */}
+					{/* 	<Card.Title className="mb-2 text-center text-2xl"> */}
+					{/* 		Page Not Found */}
+					{/* 	</Card.Title> */}
+					{/* 	<Card.Description className="mb-6 text-center"> */}
+					{/* 		Sorry, the page you're looking for doesn't exist. */}
+					{/* 	</Card.Description> */}
+					{/* 	<Link href="/" asChild> */}
+					{/* 		<Pressable className="rounded-lg bg-accent px-6 py-3 active:opacity-70"> */}
+					{/* 			<Typography variant="small" className="text-accent-foreground"> */}
+					{/* 				Go to Home */}
+					{/* 			</Typography> */}
+					{/* 		</Pressable> */}
+					{/* 	</Link> */}
+					{/* </Card> */}
 				</View>
 			</Container>
 		</>

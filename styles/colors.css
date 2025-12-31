@@ -3,10 +3,58 @@
 		@variant light {
 			--background: oklch(0.9911 0 0);
 			--foreground: oklch(0.2046 0 0);
+			--surface: oklch(0.98 0 0);
+			--surface-foreground: oklch(0.2046 0 0);
+			--overlay: oklch(0.95 0 0);
+			--overlay-foreground: oklch(0.2046 0 0);
+			--muted: oklch(0.6 0 0);
+			--default: oklch(0.98 0 0);
+			--default-foreground: oklch(0.2046 0 0);
+			--accent: oklch(0.6 0.2 250);
+			--accent-foreground: oklch(0.9911 0 0);
+			--success: oklch(0.7 0.15 145);
+			--success-foreground: oklch(0.9911 0 0);
+			--warning: oklch(0.85 0.15 85);
+			--warning-foreground: oklch(0.9911 0 0);
+			--danger: oklch(0.65 0.18 25);
+			--danger-foreground: oklch(0.9911 0 0);
+			--field-background: oklch(0.98 0 0);
+			--field-foreground: oklch(0.2046 0 0);
+			--field-placeholder: oklch(0.6 0 0);
+			--field-border: oklch(0.9 0 0);
+			--segment: oklch(0.9 0 0);
+			--segment-foreground: oklch(0.2046 0 0);
+			--border: oklch(0.9 0 0);
+			--divider: oklch(0.9 0 0);
+			--link: oklch(0.6 0.2 250);
 		}
 		@variant dark {
 			--background: oklch(0.1822 0 0);
 			--foreground: oklch(0.9288 0.0126 255.5078);
+			--surface: oklch(0.22 0 0);
+			--surface-foreground: oklch(0.9288 0.0126 255.5078);
+			--overlay: oklch(0.28 0 0);
+			--overlay-foreground: oklch(0.9288 0.0126 255.5078);
+			--muted: oklch(0.5 0 0);
+			--default: oklch(0.22 0 0);
+			--default-foreground: oklch(0.9288 0.0126 255.5078);
+			--accent: oklch(0.6 0.2 250);
+			--accent-foreground: oklch(0.1822 0 0);
+			--success: oklch(0.7 0.15 145);
+			--success-foreground: oklch(0.1822 0 0);
+			--warning: oklch(0.85 0.15 85);
+			--warning-foreground: oklch(0.1822 0 0);
+			--danger: oklch(0.65 0.18 25);
+			--danger-foreground: oklch(0.1822 0 0);
+			--field-background: oklch(0.22 0 0);
+			--field-foreground: oklch(0.9288 0.0126 255.5078);
+			--field-placeholder: oklch(0.5 0 0);
+			--field-border: oklch(0.35 0 0);
+			--segment: oklch(0.35 0 0);
+			--segment-foreground: oklch(0.9288 0.0126 255.5078);
+			--border: oklch(0.35 0 0);
+			--divider: oklch(0.35 0 0);
+			--link: oklch(0.6 0.2 250);
 		}
 
 		/* Catppuccin Mocha (dark) */

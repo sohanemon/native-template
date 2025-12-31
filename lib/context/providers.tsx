@@ -1,7 +1,7 @@
-import { HeroUINativeProvider } from "heroui-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
-import { uiConfig } from "../config/ui";
+import { SafeAreaListener } from "react-native-safe-area-context";
+import { Uniwind } from "uniwind";
 import { ReactQuery } from "../trpc/react-query";
 import { AppThemeProvider } from "./app-theme-context";
 
@@ -27,12 +27,14 @@ export function Providers({
 	}
 
 	return (
-		<CoreProviders>
-			<AppThemeProvider>
-				<HeroUINativeProvider config={uiConfig}>
-					{children}
-				</HeroUINativeProvider>
-			</AppThemeProvider>
-		</CoreProviders>
+		<SafeAreaListener
+			onChange={({ insets }) => {
+				Uniwind.updateInsets(insets);
+			}}
+		>
+			<CoreProviders>
+				<AppThemeProvider>{children}</AppThemeProvider>
+			</CoreProviders>
+		</SafeAreaListener>
 	);
 }
