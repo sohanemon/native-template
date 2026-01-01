@@ -1,23 +1,21 @@
-import "@/styles/global.css";
-import { Stack } from "expo-router";
-import { Providers } from "@/lib/context/providers";
+import '@/styles/global.css';
+import { PortalHost } from '@rn-primitives/portal';
+import { Slot } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import { Providers } from '@/lib/context/providers';
 
 export const unstable_settings = {
-	initialRouteName: "(drawer)",
+	initialRouteName: '(drawer)',
 };
 
-function StackLayout() {
-	return (
-		<Stack screenOptions={{}}>
-			<Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-		</Stack>
-	);
-}
+SplashScreen.preventAutoHideAsync();
+SplashScreen.setOptions({ duration: 500, fade: true });
 
 export default function Layout() {
 	return (
 		<Providers>
-			<StackLayout />
+			<Slot />
+			<PortalHost />
 		</Providers>
 	);
 }

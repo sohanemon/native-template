@@ -1,10 +1,5 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-	"vcs": {
-		"enabled": false,
-		"clientKind": "git",
-		"useIgnoreFile": false
-	},
 	"files": {
 		"ignoreUnknown": false,
 		"includes": [
@@ -15,13 +10,11 @@
 			"!**/.zed",
 			"!**/.vscode",
 			"!**/routeTree.gen.ts",
-			"!**/src-tauri",
 			"!**/.nuxt",
 			"!bts.jsonc",
 			"!**/.expo",
 			"!**/.wrangler",
 			"!**/.alchemy",
-			"!**/.svelte-kit",
 			"!**/wrangler.jsonc",
 			"!**/.source",
 			"!**/convex/_generated"
@@ -37,13 +30,20 @@
 		"rules": {
 			"recommended": true,
 			"correctness": {
-				"useExhaustiveDependencies": "info"
+				"useExhaustiveDependencies": "info",
+				"noUnknownFunction": "info"
 			},
 			"nursery": {
 				"useSortedClasses": {
 					"level": "warn",
 					"fix": "safe",
 					"options": {
+						"attributes": [
+							"className",
+							"classList",
+							"wrapperClassName",
+							"wrapperClass"
+						],
 						"functions": ["clsx", "cva", "cn"]
 					}
 				}
@@ -67,12 +67,23 @@
 	},
 	"javascript": {
 		"formatter": {
-			"quoteStyle": "double"
+			"quoteStyle": "single",
+			"jsxQuoteStyle": "double"
 		}
 	},
 	"css": {
 		"parser": {
 			"tailwindDirectives": true
+		}
+	},
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"json": {
+		"parser": {
+			"allowComments": true
 		}
 	}
 }
