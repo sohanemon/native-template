@@ -1,6 +1,7 @@
 {
 	"name": "native-template",
 	"private": true,
+	"version": "1.0.0",
 	"main": "expo-router/entry",
 	"scripts": {
 		"start": "expo start",
@@ -22,6 +23,7 @@
 		"test:log": "vitest run --reporter verbose",
 		"generate:assets": "bun lib/scripts/generate-assets.ts",
 		"predev": "bun run generate:assets",
+		"prebuild": "bun run predev",
 		"prepare": "husky"
 	},
 	"dependencies": {

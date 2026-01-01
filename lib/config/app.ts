@@ -1,4 +1,6 @@
 import { deepmerge } from '@ts-utilities/core';
-import app from '../../app.json';
+import { config } from '../../app.config';
 
-export const appConfig = deepmerge(app.expo, { label: 'Native Template' });
+export const appConfig = deepmerge(config, {
+	env: __DEV__,
+});
