@@ -13,8 +13,8 @@ import {
 	Octicons,
 	SimpleLineIcons,
 	Zocial,
-} from "@expo/vector-icons";
-import { withUniwind } from "uniwind";
+} from '@expo/vector-icons';
+import { withUniwind } from 'uniwind';
 
 // NOTE: icon namespace object
 export const Icon = {

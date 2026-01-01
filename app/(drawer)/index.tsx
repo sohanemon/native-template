@@ -1,15 +1,15 @@
-import { View } from "react-native";
+import { View } from 'react-native';
 
-import { Container } from "@/components/container";
-import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import { Text } from "@/components/ui/text";
-import { api } from "@/lib/trpc/api";
-import { Icon } from "@/components/icon";
+import { Container } from '@/components/container';
+import { Card, CardDescription, CardTitle } from '@/components/ui/card';
+import { Text } from '@/components/ui/text';
+import { api } from '@/lib/trpc/api';
+import { Icon } from '@/components/icon';
 
 export default function Home() {
 	const { isLoading, data } = api.healthcheck.check.useQuery();
 
-	const isConnected = data?.status === "OK";
+	const isConnected = data?.status === 'OK';
 
 	return (
 		<Container className="p-6">
@@ -22,11 +22,11 @@ export default function Home() {
 			<Card className="p-6">
 				<View className="mb-4 flex-row items-center justify-between">
 					<CardTitle>System Status</CardTitle>
-					<Text className="text-sm">{isConnected ? "LIVE" : "OFFLINE"}</Text>
+					<Text className="text-sm">{isConnected ? 'LIVE' : 'OFFLINE'}</Text>
 				</View>
 				<View className="flex-row items-center">
 					<View
-						className={`top-2 mr-3 h-3 w-3 self-start rounded-full ${isConnected ? "bg-green-500" : "bg-gray-500"}`}
+						className={`top-2 mr-3 h-3 w-3 self-start rounded-full ${isConnected ? 'bg-green-500' : 'bg-gray-500'}`}
 					/>
 					<View className="flex-1">
 						<Text variant="large" className="mb-1">
@@ -34,10 +34,10 @@ export default function Home() {
 						</Text>
 						<CardDescription>
 							{isLoading
-								? "Checking connection..."
+								? 'Checking connection...'
 								: isConnected
-									? "Connected to API"
-									: "API Disconnected"}
+									? 'Connected to API'
+									: 'API Disconnected'}
 						</CardDescription>
 					</View>
 					{isLoading && (

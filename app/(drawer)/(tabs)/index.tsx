@@ -1,6 +1,6 @@
-import { View } from "react-native";
-import { Container } from "@/components/container";
-import { Card, CardTitle } from "@/components/ui/card";
+import { View } from 'react-native';
+import { Container } from '@/components/container';
+import { Card, CardTitle } from '@/components/ui/card';
 
 export default function Home() {
 	return (

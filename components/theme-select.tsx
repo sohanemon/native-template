@@ -1,6 +1,6 @@
-import * as Haptics from "expo-haptics";
-import { type ThemeName, useTheme } from "@/lib/context/theme";
-import { Icon } from "./icon";
+import * as Haptics from 'expo-haptics';
+import { type ThemeName, useTheme } from '@/lib/context/theme';
+import { Icon } from './icon';
 import {
 	Select,
 	SelectContent,
@@ -8,19 +8,19 @@ import {
 	SelectItem,
 	SelectLabel,
 	SelectTrigger,
-} from "./ui/select";
+} from './ui/select';
 
 const THEMES = [
-	{ value: "light" as const, label: "Light" },
-	{ value: "dark" as const, label: "Dark" },
-	{ value: "ocean-light" as const, label: "Ocean Light" },
-	{ value: "ocean-dark" as const, label: "Ocean Dark" },
-	{ value: "forest-light" as const, label: "Forest Light" },
-	{ value: "forest-dark" as const, label: "Forest Dark" },
-	{ value: "sunset-light" as const, label: "Sunset Light" },
-	{ value: "sunset-dark" as const, label: "Sunset Dark" },
-	{ value: "lavender-light" as const, label: "Lavender Light" },
-	{ value: "lavender-dark" as const, label: "Lavender Dark" },
+	{ value: 'light' as const, label: 'Light' },
+	{ value: 'dark' as const, label: 'Dark' },
+	{ value: 'ocean-light' as const, label: 'Ocean Light' },
+	{ value: 'ocean-dark' as const, label: 'Ocean Dark' },
+	{ value: 'forest-light' as const, label: 'Forest Light' },
+	{ value: 'forest-dark' as const, label: 'Forest Dark' },
+	{ value: 'sunset-light' as const, label: 'Sunset Light' },
+	{ value: 'sunset-dark' as const, label: 'Sunset Dark' },
+	{ value: 'lavender-light' as const, label: 'Lavender Light' },
+	{ value: 'lavender-dark' as const, label: 'Lavender Dark' },
 ];
 
 export function ThemeSelect() {

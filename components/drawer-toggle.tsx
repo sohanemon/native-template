@@ -1,6 +1,6 @@
-import { DrawerActions } from "@react-navigation/native";
-import { useNavigation } from "expo-router";
-import { Icon } from "@/components/icon";
+import { DrawerActions } from '@react-navigation/native';
+import { useNavigation } from 'expo-router';
+import { Icon } from '@/components/icon';
 
 export const DrawerToggle = () => {
 	const router = useNavigation();

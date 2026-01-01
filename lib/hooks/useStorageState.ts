@@ -1,5 +1,5 @@
-import * as SecureStore from "expo-secure-store";
-import { useCallback, useEffect, useRef, useState } from "react";
+import * as SecureStore from 'expo-secure-store';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 type DefaultValue<T> = T | (() => T) | (() => Promise<T>);
 
@@ -22,7 +22,7 @@ export function useStorageState<T>(
 
 	const resolveDefaultValue = useCallback(async (): Promise<T> => {
 		const def = defaultValueRef.current;
-		if (typeof def === "function") {
+		if (typeof def === 'function') {
 			const result = (def as () => T | Promise<T>)();
 			return result instanceof Promise ? await result : result;
 		}
@@ -57,7 +57,7 @@ export function useStorageState<T>(
 				if (!isInitialized || prevValue === undefined) return prevValue;
 
 				const nextValue =
-					typeof newValue === "function"
+					typeof newValue === 'function'
 						? (newValue as (prev: T) => T)(prevValue)
 						: newValue;
 

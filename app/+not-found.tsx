@@ -1,14 +1,14 @@
-import { Link, Stack } from "expo-router";
-import { Pressable, View } from "react-native";
+import { Link, Stack } from 'expo-router';
+import { Pressable, View } from 'react-native';
 
-import { Container } from "@/components/container";
-import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import { Text } from "@/components/ui/text";
+import { Container } from '@/components/container';
+import { Card, CardDescription, CardTitle } from '@/components/ui/card';
+import { Text } from '@/components/ui/text';
 
 export default function NotFoundScreen() {
 	return (
 		<>
-			<Stack.Screen options={{ title: "Oops!" }} />
+			<Stack.Screen options={{ title: 'Oops!' }} />
 			<Container>
 				<View className="flex-1 items-center justify-center p-6">
 					<Card className="max-w-md items-center p-8">

@@ -1,28 +1,28 @@
-import * as SplashScreen from "expo-splash-screen";
-import * as React from "react";
-import { StatusBar } from "react-native";
-import { Uniwind, useCSSVariable, useUniwind } from "uniwind";
-import { useStorageState } from "../hooks/useStorageState";
+import * as SplashScreen from 'expo-splash-screen';
+import * as React from 'react';
+import { StatusBar } from 'react-native';
+import { Uniwind, useCSSVariable, useUniwind } from 'uniwind';
+import { useStorageState } from '../hooks/useStorageState';
 
-export type ThemeName = ReturnType<typeof useUniwind>["theme"];
+export type ThemeName = ReturnType<typeof useUniwind>['theme'];
 
 const COLORS = [
-	"foreground",
-	"background",
-	"accent",
-	"muted",
-	"primary",
-	"primary-foreground",
-	"secondary",
-	"secondary-foreground",
-	"card",
-	"card-foreground",
-	"popover",
-	"popover-foreground",
-	"destructive",
-	"border",
-	"input",
-	"ring",
+	'foreground',
+	'background',
+	'accent',
+	'muted',
+	'primary',
+	'primary-foreground',
+	'secondary',
+	'secondary-foreground',
+	'card',
+	'card-foreground',
+	'popover',
+	'popover-foreground',
+	'destructive',
+	'border',
+	'input',
+	'ring',
 ] as const;
 
 type ThemeContextType = {
@@ -42,7 +42,7 @@ const ThemeContext = React.createContext<ThemeContextType | undefined>(
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 	const { theme: defaultValue } = useUniwind();
 	const [storedTheme, setStoredTheme] = useStorageState<ThemeName>(
-		"app-theme",
+		'app-theme',
 		{
 			defaultValue,
 		},
@@ -56,11 +56,11 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 				(acc, key, index) => {
 					const value = colorValues[index];
 
-					acc[key] = typeof value === "string" ? value : String(value ?? "");
+					acc[key] = typeof value === 'string' ? value : String(value ?? '');
 
 					return acc;
 				},
-				{} as ThemeContextType["colors"],
+				{} as ThemeContextType['colors'],
 			),
 		[colorValues],
 	);
@@ -76,7 +76,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 		if (storedTheme) {
 			Uniwind.setTheme(storedTheme);
 			StatusBar.setBarStyle(
-				!storedTheme.includes("dark") ? "dark-content" : "light-content",
+				!storedTheme.includes('dark') ? 'dark-content' : 'light-content',
 			);
 			SplashScreen.hide();
 		}
@@ -99,7 +99,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 export function useTheme() {
 	const context = React.useContext(ThemeContext);
 	if (!context) {
-		throw new Error("useTheme must be used within ThemeProvider");
+		throw new Error('useTheme must be used within ThemeProvider');
 	}
 	return context;
 }

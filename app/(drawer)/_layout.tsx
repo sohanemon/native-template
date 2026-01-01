@@ -1,16 +1,16 @@
-import { Drawer } from "expo-router/drawer";
-import { useResolveClassNames } from "uniwind";
-import { DrawerToggle } from "@/components/drawer-toggle";
-import { Icon } from "@/components/icon";
-import { ThemeSelect } from "@/components/theme-select";
-import { Text } from "@/components/ui/text";
-import { useTheme } from "@/lib/context/theme";
+import { Drawer } from 'expo-router/drawer';
+import { useResolveClassNames } from 'uniwind';
+import { DrawerToggle } from '@/components/drawer-toggle';
+import { Icon } from '@/components/icon';
+import { ThemeSelect } from '@/components/theme-select';
+import { Text } from '@/components/ui/text';
+import { useTheme } from '@/lib/context/theme';
 
 function DrawerLayout() {
 	const { colors } = useTheme();
 
 	const headerTitleStyle = useResolveClassNames(
-		"font-semibold text-foreground",
+		'font-semibold text-foreground',
 	);
 
 	return (
@@ -29,7 +29,7 @@ function DrawerLayout() {
 			<Drawer.Screen
 				name="index"
 				options={{
-					headerTitle: "Home",
+					headerTitle: 'Home',
 					drawerLabel: ({ color, focused }) => (
 						<Text style={{ color: focused ? color : colors.foreground }}>
 							Home
@@ -47,7 +47,7 @@ function DrawerLayout() {
 			<Drawer.Screen
 				name="(tabs)"
 				options={{
-					headerTitle: "Tabs",
+					headerTitle: 'Tabs',
 					drawerLabel: ({ color, focused }) => (
 						<Text style={{ color: focused ? color : colors.foreground }}>
 							Tabs
