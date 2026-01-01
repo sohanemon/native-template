@@ -5,7 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { Providers } from '@/lib/context/providers';
 
 export const unstable_settings = {
-	initialRouteName: '(drawer)',
+	initialRouteName: '(stack)',
 };
 
 SplashScreen.preventAutoHideAsync();

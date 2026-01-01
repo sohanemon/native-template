@@ -55,3 +55,4 @@ expo-env.d.ts
 # @end expo-cli
 .expo
 android
+ios
