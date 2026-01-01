@@ -1,6 +1,8 @@
 import { cva, type VariantProps } from 'class-variance-authority';
+import { type Href, Link } from 'expo-router';
 import { Platform, Pressable } from 'react-native';
-import { TextClassContext } from '@/components/ui/text';
+import { type ReactNode } from 'react';
+import { Text, TextClassContext } from '@/components/ui/text';
 import { cn } from '@/lib/utils';
 
 // NOTE: group-* is not supported yet by Uniwind
@@ -101,12 +103,29 @@ const buttonTextVariants = cva(
 	},
 );
 
-type ButtonProps = React.ComponentProps<typeof Pressable> &
+type ButtonProps = Omit<
+	React.ComponentProps<typeof Pressable>,
+	'href' | 'children'
+> &
 	React.RefAttributes<typeof Pressable> &
-	VariantProps<typeof buttonVariants>;
+	VariantProps<typeof buttonVariants> & {
+		href?: Href;
+		noTextWrapper?: boolean;
+		children?: ReactNode;
+	};
 
-function Button({ className, variant, size, ...props }: ButtonProps) {
-	return (
+function Button({
+	className,
+	variant,
+	size,
+	href,
+	noTextWrapper,
+	children,
+	...props
+}: ButtonProps) {
+	const content = noTextWrapper ? children : <Text>{children}</Text>;
+
+	const buttonContent = (
 		<TextClassContext.Provider value={buttonTextVariants({ variant, size })}>
 			<Pressable
 				className={cn(
@@ -115,10 +134,19 @@ function Button({ className, variant, size, ...props }: ButtonProps) {
 					className,
 				)}
 				role="button"
+				pointerEvents={href ? 'none' : undefined}
 				{...props}
-			/>
+			>
+				{content}
+			</Pressable>
 		</TextClassContext.Provider>
 	);
+
+	if (href) {
+		return <Link href={href}>{buttonContent}</Link>;
+	}
+
+	return buttonContent;
 }
 
 export { Button, buttonTextVariants, buttonVariants };
