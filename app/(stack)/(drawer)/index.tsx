@@ -1,7 +1,6 @@
 import { View } from 'react-native';
-
-import { Container } from '@/components/layout/container';
 import { Icon } from '@/components/icon';
+import { Container } from '@/components/layout/container';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { api } from '@/lib/trpc/api';

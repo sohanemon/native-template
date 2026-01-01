@@ -16,7 +16,7 @@ export function DrawerFooter({ className, ...props }: DrawerFooterProps) {
 			>
 				<Icon.Fontisto
 					name="world-o"
-					size={44}
+					size={20}
 					className="text-muted-foreground"
 				/>
 			</Button>
@@ -28,7 +28,7 @@ export function DrawerFooter({ className, ...props }: DrawerFooterProps) {
 			>
 				<Icon.Octicons
 					name="mark-github"
-					size={36}
+					size={20}
 					className="text-muted-foreground"
 				/>
 			</Button>
@@ -40,7 +40,7 @@ export function DrawerFooter({ className, ...props }: DrawerFooterProps) {
 			>
 				<Icon.FontAwesome
 					name="linkedin"
-					size={36}
+					size={20}
 					className="text-muted-foreground"
 				/>
 			</Button>

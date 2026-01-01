@@ -20,6 +20,7 @@ export default function DrawerLayout() {
 				drawerActiveTintColor: colors.primary,
 				drawerInactiveTintColor: colors.muted,
 				headerShadowVisible: false,
+				swipeEnabled: true,
 			}}
 			drawerContent={DrawerContents}
 		>

@@ -28,6 +28,7 @@ const COLORS = [
 type ThemeContextType = {
 	currentTheme: ThemeName;
 	setTheme: (theme: ThemeName) => void;
+	colorScheme: 'light' | 'dark';
 	colors: {
 		[key in (typeof COLORS)[number]]: string;
 	};
@@ -49,6 +50,11 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 	);
 
 	const colorValues = useCSSVariable(COLORS.map((c) => `--color-${c}`));
+
+	const colorScheme: ThemeContextType['colorScheme'] = React.useMemo(
+		() => (storedTheme?.includes('dark') ? 'dark' : 'light'),
+		[storedTheme],
+	);
 
 	const colors = React.useMemo(
 		() =>
@@ -75,20 +81,23 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 	React.useEffect(() => {
 		if (storedTheme) {
 			Uniwind.setTheme(storedTheme);
+
 			StatusBar.setBarStyle(
-				!storedTheme.includes('dark') ? 'dark-content' : 'light-content',
+				`${colorScheme === 'dark' ? 'light' : 'dark'}-content`,
 			);
+
 			SplashScreen.hide();
 		}
-	}, [storedTheme]);
+	}, [storedTheme, colorScheme]);
 
 	const value = React.useMemo(
 		() => ({
 			currentTheme: storedTheme,
 			setTheme,
 			colors,
+			colorScheme,
 		}),
-		[storedTheme, setTheme, colors],
+		[storedTheme, setTheme, colors, colorScheme],
 	);
 
 	return (
