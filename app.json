@@ -21,7 +21,7 @@
 				"foregroundImage": "./assets/adaptive-icon.png"
 			},
 			"edgeToEdgeEnabled": true,
-			"package": "com.anonymous.nativetemplate"
+			"package": "com.sohanemon.nativetemplate"
 		},
 		"web": {
 			"output": "server",
@@ -39,7 +39,7 @@
 				"expo-splash-screen",
 				{
 					"image": "./assets/splash.png",
-					"imageWidth": 200,
+					"imageWidth": 150,
 					"resizeMode": "contain",
 					"backgroundColor": "#ffffff",
 					"dark": {

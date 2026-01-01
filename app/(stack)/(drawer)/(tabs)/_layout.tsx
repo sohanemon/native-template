@@ -21,7 +21,7 @@ export default function TabLayout() {
 					backgroundColor: colors.background,
 				},
 				tabBarActiveTintColor: colors.primary,
-				tabBarInactiveTintColor: colors.foreground + 80,
+				tabBarInactiveTintColor: `${colors.foreground}80`,
 				animation: 'shift',
 			}}
 		>

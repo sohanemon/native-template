@@ -34,8 +34,6 @@ type ThemeContextType = {
 	};
 };
 
-SplashScreen.preventAutoHideAsync();
-
 const ThemeContext = React.createContext<ThemeContextType | undefined>(
 	undefined,
 );

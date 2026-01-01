@@ -4,6 +4,7 @@ import { Pressable, View } from 'react-native';
 import { Container } from '@/components/layout/container';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
+import { Button } from '@/components/ui/button';
 
 export default function NotFoundScreen() {
 	return (
@@ -21,13 +22,9 @@ export default function NotFoundScreen() {
 						<CardDescription className="mb-6 text-center">
 							Sorry, the page you're looking for doesn't exist.
 						</CardDescription>
-						<Link href="/" asChild>
-							<Pressable className="rounded-lg bg-accent px-6 py-3 active:opacity-70">
-								<Text variant="small" className="text-accent-foreground">
-									Go to Home
-								</Text>
-							</Pressable>
-						</Link>
+						<Button variant="secondary" href="/">
+							Go to Home
+						</Button>
 					</Card>
 				</View>
 			</Container>
