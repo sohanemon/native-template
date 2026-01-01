@@ -1,7 +1,7 @@
 import { Link, Stack } from 'expo-router';
 import { Pressable, View } from 'react-native';
 
-import { Container } from '@/components/container';
+import { Container } from '@/components/layout/container';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 

@@ -125,28 +125,33 @@ function Button({
 }: ButtonProps) {
 	const content = noTextWrapper ? children : <Text>{children}</Text>;
 
-	const buttonContent = (
-		<TextClassContext.Provider value={buttonTextVariants({ variant, size })}>
-			<Pressable
-				className={cn(
-					props.disabled && 'opacity-50',
-					buttonVariants({ variant, size }),
-					className,
-				)}
-				role="button"
-				pointerEvents={href ? 'none' : undefined}
-				{...props}
-			>
-				{content}
-			</Pressable>
-		</TextClassContext.Provider>
+	let buttonContent = (
+		<Pressable
+			className={cn(
+				props.disabled && 'opacity-50',
+				buttonVariants({ variant, size }),
+				className,
+			)}
+			role="button"
+			{...props}
+		>
+			{content}
+		</Pressable>
 	);
 
 	if (href) {
-		return <Link href={href}>{buttonContent}</Link>;
+		buttonContent = (
+			<Link asChild href={href}>
+				{buttonContent}
+			</Link>
+		);
 	}
 
-	return buttonContent;
+	return (
+		<TextClassContext.Provider value={buttonTextVariants({ variant, size })}>
+			{buttonContent}
+		</TextClassContext.Provider>
+	);
 }
 
 export { Button, buttonTextVariants, buttonVariants };

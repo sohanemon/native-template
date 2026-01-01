@@ -92,4 +92,4 @@ function Text({
 	);
 }
 
-export { Text, TextClassContext };
+export { Text, TextClassContext, type TextVariant, textVariants };

@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { Container } from '@/components/container';
+import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { Card, CardTitle } from '@/components/ui/card';
 

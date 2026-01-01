@@ -1,11 +1,12 @@
 import { Drawer } from 'expo-router/drawer';
-import { DrawerToggle } from '@/components/drawer-toggle';
 import { Icon } from '@/components/icon';
+import { DrawerContents } from '@/components/layout/drawer/drawer-contents';
+import { DrawerToggle } from '@/components/layout/drawer/drawer-toggle';
 import { ThemeSelect } from '@/components/theme-select';
 import { Text } from '@/components/ui/text';
 import { useTheme } from '@/lib/context/theme';
 
-function DrawerLayout() {
+export default function DrawerLayout() {
 	const { colors } = useTheme();
 
 	return (
@@ -20,6 +21,7 @@ function DrawerLayout() {
 				drawerInactiveTintColor: colors.muted,
 				headerShadowVisible: false,
 			}}
+			drawerContent={DrawerContents}
 		>
 			<Drawer.Screen
 				name="index"
@@ -60,5 +62,3 @@ function DrawerLayout() {
 		</Drawer>
 	);
 }
-
-export default DrawerLayout;

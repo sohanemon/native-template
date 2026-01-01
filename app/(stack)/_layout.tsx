@@ -1,15 +1,12 @@
-import '@/styles/global.css';
-import { PortalHost } from '@rn-primitives/portal';
 import { Stack } from 'expo-router/stack';
-import { StackBack } from '@/components/stack-back';
-import { Providers } from '@/lib/context/providers';
+import { StackBack } from '@/components/layout/stack/stack-back';
 import { useTheme } from '@/lib/context/theme';
 
 export const unstable_settings = {
 	initialRouteName: '(drawer)',
 };
 
-function StackLayout() {
+export default function StackLayout() {
 	const { colors } = useTheme();
 
 	return (
@@ -26,14 +23,5 @@ function StackLayout() {
 			<Stack.Screen name="(drawer)" options={{ headerShown: false }} />
 			<Stack.Screen name="other" options={{ headerTitle: 'Other Stack' }} />
 		</Stack>
-	);
-}
-
-export default function Layout() {
-	return (
-		<Providers>
-			<StackLayout />
-			<PortalHost />
-		</Providers>
 	);
 }

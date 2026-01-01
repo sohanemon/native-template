@@ -1,7 +1,7 @@
 import { useNavigation } from 'expo-router';
 import type { ViewProps } from 'react-native';
+import { Icon } from '@/components/icon';
 import { cn } from '@/lib/utils';
-import { Icon } from './icon';
 
 type StackBackProps = ViewProps;
 

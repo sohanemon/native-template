@@ -1,0 +1,8 @@
+{
+  "$schema": "https://sohanjs.web.app/draft/next/schema.json",
+  "packageManager": "bun",
+  "cwd": "$NVIM_CWD",
+  "commands": {
+    "dev": "bun run dev"
+  }
+}
