@@ -38,7 +38,7 @@ const createIconWithVariants = <T extends ElementType>(
 		return (
 			<UniwindIcon
 				{...props}
-				className={cn(textVariants({ variant }), className)}
+				className={cn(variant && textVariants({ variant }), className)}
 			/>
 		);
 	};

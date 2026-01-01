@@ -2,14 +2,14 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { type Href, Link } from 'expo-router';
 import type { ReactNode } from 'react';
 import { Platform, Pressable } from 'react-native';
-import { Text, TextClassContext } from '@/components/ui/text';
+import { Text } from '@/components/ui/text';
 import { cn } from '@/lib/utils';
 
 // NOTE: group-* is not supported yet by Uniwind
 
 const buttonVariants = cva(
 	cn(
-		'group shrink-0 flex-row items-center justify-center gap-2 rounded-md shadow-none',
+		'group shrink-0 flex-row items-center justify-center gap-2 rounded-md shadow-none disabled:opacity-70',
 		Platform.select({
 			web: "whitespace-nowrap outline-none transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
 		}),
@@ -123,15 +123,19 @@ function Button({
 	children,
 	...props
 }: ButtonProps) {
-	const content = noTextWrapper ? children : <Text>{children}</Text>;
+	let content = children;
 
-	let buttonContent = (
+	if (!noTextWrapper) {
+		content = (
+			<Text className={cn(buttonTextVariants({ variant, size }))}>
+				{content}
+			</Text>
+		);
+	}
+
+	content = (
 		<Pressable
-			className={cn(
-				props.disabled && 'opacity-50',
-				buttonVariants({ variant, size }),
-				className,
-			)}
+			className={cn(buttonVariants({ variant, size }), className)}
 			role="button"
 			{...props}
 		>
@@ -139,20 +143,15 @@ function Button({
 		</Pressable>
 	);
 
-	if (href) {
-		buttonContent = (
+	if (href && !props.disabled) {
+		content = (
 			<Link asChild href={href}>
-				{buttonContent}
+				{content}
 			</Link>
 		);
 	}
 
-	return (
-		<TextClassContext.Provider value={buttonTextVariants({ variant, size })}>
-			{buttonContent}
-		</TextClassContext.Provider>
-	);
+	return content;
 }
 
-export { Button, buttonTextVariants, buttonVariants };
-export type { ButtonProps };
+export { Button, buttonTextVariants, type ButtonProps, buttonVariants };
