@@ -1,10 +1,10 @@
 import { View } from 'react-native';
-import { Text } from '@/components/ui/text';
+import { Img } from '@/components/ui/image';
 
 export default function DrawerOther() {
 	return (
 		<View>
-			<Text>hello from drawer</Text>
+			<Img src="/adaptive-icon.png" />
 		</View>
 	);
 }

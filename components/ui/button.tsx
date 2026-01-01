@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import { type Href, Link } from 'expo-router';
+import type { ReactNode } from 'react';
 import { Platform, Pressable } from 'react-native';
-import { type ReactNode } from 'react';
 import { Text, TextClassContext } from '@/components/ui/text';
 import { cn } from '@/lib/utils';
 

@@ -1,10 +1,10 @@
 import { View } from 'react-native';
 
 import { Container } from '@/components/container';
+import { Icon } from '@/components/icon';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { api } from '@/lib/trpc/api';
-import { Icon } from '@/components/icon';
 
 export default function Home() {
 	const { isLoading, data } = api.healthcheck.check.useQuery();
