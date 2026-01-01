@@ -42,10 +42,10 @@ export function ThemeSelect() {
 					THEMES.find((t) => t.value === currentTheme)?.label || currentTheme,
 			}}
 		>
-			<SelectTrigger icon={false} className="w-fit border-0">
+			<SelectTrigger icon={false} className="h-fit w-fit border-0">
 				<Icon.Ionicons
 					name="color-palette-outline"
-					className="text-foreground text-lg"
+					className="text-2xl text-foreground"
 				/>
 			</SelectTrigger>
 			<SelectContent alignOffset={10} align="end">

@@ -1,5 +1,4 @@
 import { Drawer } from 'expo-router/drawer';
-import { useResolveClassNames } from 'uniwind';
 import { DrawerToggle } from '@/components/drawer-toggle';
 import { Icon } from '@/components/icon';
 import { ThemeSelect } from '@/components/theme-select';
@@ -9,21 +8,17 @@ import { useTheme } from '@/lib/context/theme';
 function DrawerLayout() {
 	const { colors } = useTheme();
 
-	const headerTitleStyle = useResolveClassNames(
-		'font-semibold text-foreground',
-	);
-
 	return (
 		<Drawer
 			screenOptions={{
 				headerTintColor: colors.foreground,
 				headerStyle: { backgroundColor: colors.background },
-				headerTitleStyle,
 				headerRight: () => <ThemeSelect />,
 				headerLeft: () => <DrawerToggle />,
 				drawerStyle: { backgroundColor: colors.background },
 				drawerActiveTintColor: colors.primary,
 				drawerInactiveTintColor: colors.muted,
+				headerShadowVisible: false,
 			}}
 		>
 			<Drawer.Screen
