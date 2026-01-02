@@ -1,27 +1,30 @@
 import {
 	type DrawerContentComponentProps,
 	DrawerContentScrollView,
-	DrawerItemList,
 } from '@react-navigation/drawer';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { DrawerBody } from './drawer-body';
 import { DrawerFooter } from './drawer-footer';
 import { DrawerHeader } from './drawer-header';
 
 // BUG: to see changes, it requires to reload
 
 export function DrawerContents(props: DrawerContentComponentProps) {
+	const currentRoute = props.state.routes[props.state.index].name;
 	return (
 		<DrawerContentScrollView {...props} contentContainerStyle={{ flex: 1 }}>
-			<View className="min-h-screen flex-1">
+			<View className="flex-1">
 				<DrawerHeader />
 
-				<DrawerItemList {...props} />
-
-				<View className="flex-1" />
+				<DrawerBody
+					className="flex-1"
+					navigation={props.navigation}
+					currentRoute={currentRoute}
+				/>
 
 				<SafeAreaView>
-					<DrawerFooter className="border-muted border-t pt-3 pb-px" />
+					<DrawerFooter className="border-muted border-t pt-4 pb-2" />
 				</SafeAreaView>
 			</View>
 		</DrawerContentScrollView>

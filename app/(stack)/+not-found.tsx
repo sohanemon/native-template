@@ -1,10 +1,10 @@
-import { Link, Stack } from 'expo-router';
-import { Pressable, View } from 'react-native';
+import { Stack } from 'expo-router';
+import { View } from 'react-native';
 
 import { Container } from '@/components/layout/container';
+import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
-import { Button } from '@/components/ui/button';
 
 export default function NotFoundScreen() {
 	return (

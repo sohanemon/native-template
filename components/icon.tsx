@@ -26,7 +26,7 @@ type VariantProps = {
 	className?: string;
 };
 
-type IconProps<T extends ElementType> = ComponentPropsWithoutRef<T> &
+export type IconProps<T extends ElementType> = ComponentPropsWithoutRef<T> &
 	VariantProps;
 
 const createIconWithVariants = <T extends ElementType>(

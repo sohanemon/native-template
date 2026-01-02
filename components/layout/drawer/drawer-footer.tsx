@@ -1,7 +1,7 @@
-import { type ViewProps, Linking, TouchableOpacity, View } from 'react-native';
+import { Linking, View, type ViewProps } from 'react-native';
 import { Icon } from '@/components/icon';
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 type DrawerFooterProps = ViewProps;
 

@@ -2,10 +2,6 @@ import { Stack } from 'expo-router/stack';
 import { StackBack } from '@/components/layout/stack/stack-back';
 import { useTheme } from '@/lib/context/theme';
 
-export const unstable_settings = {
-	initialRouteName: '(drawer)',
-};
-
 export default function StackLayout() {
 	const { colors } = useTheme();
 
