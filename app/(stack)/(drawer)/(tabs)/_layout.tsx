@@ -9,20 +9,14 @@ export default function TabLayout() {
 		<Tabs
 			screenOptions={{
 				headerShown: false,
-				headerStyle: {
-					backgroundColor: colors.background,
-				},
-				headerTintColor: colors.foreground,
-				headerTitleStyle: {
-					color: colors.foreground,
-					fontWeight: '600',
-				},
 				tabBarStyle: {
 					backgroundColor: colors.background,
 				},
 				tabBarActiveTintColor: colors.primary,
-				tabBarInactiveTintColor: `${colors.foreground}80`,
-				animation: 'shift',
+				animation: 'none',
+				sceneStyle: {
+					backgroundColor: colors.background,
+				},
 			}}
 		>
 			<Tabs.Screen

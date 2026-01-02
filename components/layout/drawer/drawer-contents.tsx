@@ -3,7 +3,6 @@ import {
 	DrawerContentScrollView,
 } from '@react-navigation/drawer';
 import { View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { DrawerBody } from './drawer-body';
 import { DrawerFooter } from './drawer-footer';
 import { DrawerHeader } from './drawer-header';
@@ -23,9 +22,7 @@ export function DrawerContents(props: DrawerContentComponentProps) {
 					currentRoute={currentRoute}
 				/>
 
-				<SafeAreaView>
-					<DrawerFooter className="border-muted border-t pt-4 pb-2" />
-				</SafeAreaView>
+				<DrawerFooter className="mb-safe border-muted border-t pt-4 pb-2" />
 			</View>
 		</DrawerContentScrollView>
 	);

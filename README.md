@@ -112,6 +112,18 @@ Choose your platform:
 | `bun run fix` | Auto-fix linting issues |
 | `bun run typecheck` | Run TypeScript type checking |
 | `bun run generate:assets` | Auto-generate type-safe asset imports |
+| `bun run analyze-bundle` | Analyze Android bundle size with Expo Atlas |
+
+## 📊 Bundle Analysis
+
+Monitor your app's bundle size to keep it optimized:
+
+```bash
+bun run analyze-bundle  # Export and analyze Android bundle
+npx expo-atlas          # View interactive bundle visualization
+```
+
+Expo Atlas provides detailed insights into which libraries and modules contribute most to your bundle size, helping you identify optimization opportunities.
 
 ## 🎨 Theme Showcase
 

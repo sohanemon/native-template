@@ -4,6 +4,12 @@ const { withUniwindConfig } = require('uniwind/metro');
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname);
 
+config.transformer.minifierConfig = {
+	compress: {
+		drop_console: true,
+	},
+};
+
 const uniwindConfig = withUniwindConfig(config, {
 	cssEntryFile: './styles/global.css',
 	dtsFile: './types/uniwind-types.d.ts',
