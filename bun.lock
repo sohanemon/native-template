@@ -622,7 +622,7 @@
 
     "@trpc/tanstack-react-query": ["@trpc/tanstack-react-query@11.8.1", "", { "peerDependencies": { "@tanstack/react-query": "^5.80.3", "@trpc/client": "11.8.1", "@trpc/server": "11.8.1", "react": ">=18.2.0", "react-dom": ">=18.2.0", "typescript": ">=5.7.2" } }, "sha512-0gBbRmRuU9/IVZgNFJuzY7k6ktnkmqjyP78PtcUBO7EgPlBu1y2MA2TdI5GT/VtNNOOhzkVeQpJqtt+0xQ8TOQ=="],
 
-    "@ts-utilities/core": ["@ts-utilities/core@1.0.9", "", {}, "sha512-TpL4P+79Ow6WjJl3tgToYPRcKQhP1FVF5PoeIEabmSxdG9jZQGMWyhYohjjGES+YGJe8GXerkCld/a2ilUClcg=="],
+    "@ts-utilities/core": ["@ts-utilities/core@1.0.10", "", {}, "sha512-lcfCP7Q8gcF8VLWpAgTsZov8/Oiagqm3Vjoaab2KT9HQQSns9RbRwcZayOeq0sg2lcbH8mrvTRv5mVpSp2bNGw=="],
 
     "@types/babel__core": ["@types/babel__core@7.20.5", "", { "dependencies": { "@babel/parser": "^7.20.7", "@babel/types": "^7.20.7", "@types/babel__generator": "*", "@types/babel__template": "*", "@types/babel__traverse": "*" } }, "sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA=="],
 

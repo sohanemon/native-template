@@ -7,8 +7,16 @@ const config = getDefaultConfig(__dirname);
 config.transformer.minifierConfig = {
 	compress: {
 		drop_console: true,
+		drop_debugger: true,
 	},
 };
+
+config.transformer.getTransformOptions = async () => ({
+	transform: {
+		experimentalImportSupport: true,
+		inlineRequires: true,
+	},
+});
 
 const uniwindConfig = withUniwindConfig(config, {
 	cssEntryFile: './styles/global.css',

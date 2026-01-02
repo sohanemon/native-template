@@ -3,12 +3,11 @@ import type {
 	NavigationHelpers,
 	ParamListBase,
 } from '@react-navigation/native';
-import type * as React from 'react';
 import { View, type ViewProps } from 'react-native';
 import { Icon } from '@/components/icon';
+import { drawerItems } from '@/lib/constants/drawer';
 import { useTheme } from '@/lib/context/theme';
 import { cn } from '@/lib/utils';
-import { drawerItems } from '@/lib/constants/drawer';
 
 type DrawerBodyProps = ViewProps & {
 	currentRoute: string;
@@ -26,11 +25,6 @@ export function DrawerBody({
 	return (
 		<View className={cn(className)} {...props}>
 			{drawerItems.map((item) => {
-				const [iconType, iconName] = item.icon.split('.') as [
-					keyof typeof Icon,
-					string,
-				];
-
 				return (
 					<DrawerItem
 						key={item.route}
@@ -40,14 +34,8 @@ export function DrawerBody({
 						inactiveTintColor={colors.foreground}
 						onPress={() => navigation.navigate(item.route)}
 						icon={({ size, color }) => {
-							const IconComponent = Icon[iconType] as React.ComponentType<{
-								name: string;
-								size: number;
-								color: string;
-							}>;
-
 							return (
-								<IconComponent name={iconName} size={size} color={color} />
+								<Icon.Feather name={item.icon} size={size} color={color} />
 							);
 						}}
 					/>

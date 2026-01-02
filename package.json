@@ -22,7 +22,7 @@
 		"test:ui": "vitest --ui",
 		"test:log": "vitest run --reporter verbose",
 		"generate:assets": "bun lib/scripts/generate-assets.ts",
-		"analyze-bundle": "EXPO_UNSTABLE_ATLAS=true expo export --platform android && echo '📊 Bundle analysis complete! Run: npx expo-atlas'",
+		"analyze-bundle": "EXPO_UNSTABLE_ATLAS=true expo export --platform android && echo '📊 Bundle analysis complete! Run: npx expo-atlas' && npx expo-atlas",
 		"predev": "bun run generate:assets",
 		"prebuild": "bun run predev",
 		"prepare": "husky"

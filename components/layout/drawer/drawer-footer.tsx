@@ -26,7 +26,7 @@ export function DrawerFooter({ className, ...props }: DrawerFooterProps) {
 				className="rounded-full"
 				size="icon"
 			>
-				<Icon.Octicons
+				<Icon.FontAwesome6
 					name="mark-github"
 					size={20}
 					className="text-muted-foreground"
@@ -38,7 +38,7 @@ export function DrawerFooter({ className, ...props }: DrawerFooterProps) {
 				onPress={() => Linking.openURL('https://linkedin.com/in/sohanemon')}
 				className="rounded-full"
 			>
-				<Icon.FontAwesome
+				<Icon.FontAwesome6
 					name="linkedin"
 					size={20}
 					className="text-muted-foreground"

@@ -47,19 +47,19 @@ const createIconWithVariants = <T extends ElementType>(
 };
 
 export const Icon = {
-	Ionicons: createIconWithVariants(Ionicons),
-	MaterialIcons: createIconWithVariants(MaterialIcons),
-	MaterialCommunityIcons: createIconWithVariants(MaterialCommunityIcons),
+	Feather: createIconWithVariants(Feather),
 	FontAwesome: createIconWithVariants(FontAwesome),
-	FontAwesome5: createIconWithVariants(FontAwesome5),
 	FontAwesome6: createIconWithVariants(FontAwesome6),
 	Fontisto: createIconWithVariants(Fontisto),
-	Feather: createIconWithVariants(Feather),
+	Ionicons: createIconWithVariants(Ionicons),
+	Octicons: createIconWithVariants(Octicons),
 	AntDesign: createIconWithVariants(AntDesign),
 	Entypo: createIconWithVariants(Entypo),
-	EvilIcons: createIconWithVariants(EvilIcons),
-	Foundation: createIconWithVariants(Foundation),
-	Octicons: createIconWithVariants(Octicons),
-	SimpleLineIcons: createIconWithVariants(SimpleLineIcons),
 	Zocial: createIconWithVariants(Zocial),
+	EvilIcons: createIconWithVariants(EvilIcons),
+	FontAwesome5: createIconWithVariants(FontAwesome5),
+	Foundation: createIconWithVariants(Foundation),
+	MaterialIcons: createIconWithVariants(MaterialIcons),
+	MaterialCommunityIcons: createIconWithVariants(MaterialCommunityIcons),
+	SimpleLineIcons: createIconWithVariants(SimpleLineIcons),
 } as const;
