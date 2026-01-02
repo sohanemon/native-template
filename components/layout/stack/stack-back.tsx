@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 type StackBackProps = ViewProps;
 
 export function StackBack({ className, ...props }: StackBackProps) {
-	const router = useNavigation();
+	const navigation = useNavigation();
 
 	return (
 		<Icon.FontAwesome6
@@ -14,7 +14,7 @@ export function StackBack({ className, ...props }: StackBackProps) {
 			className={cn('h-full w-5 text-foreground text-lg', className)}
 			hitSlop={10}
 			onPress={() => {
-				router.goBack();
+				navigation.goBack();
 			}}
 			{...props}
 		/>

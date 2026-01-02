@@ -1,4 +1,5 @@
-import { useRouter } from 'expo-router';
+import { DrawerActions } from '@react-navigation/native';
+import { useNavigation, useRouter } from 'expo-router';
 import { View } from 'react-native';
 import { GestureDetector } from 'react-native-gesture-handler';
 import { Container } from '@/components/layout/container';
@@ -7,12 +8,16 @@ import { swipeGesture } from '@/lib/utils/swipe-gesture-handler';
 
 export default function Home() {
 	const router = useRouter();
+	const navigation = useNavigation();
 
 	return (
 		<GestureDetector
 			gesture={swipeGesture({
 				onLeft: () => {
 					router.push('./two');
+				},
+				onRight: () => {
+					navigation.dispatch(DrawerActions.openDrawer());
 				},
 			})}
 		>
