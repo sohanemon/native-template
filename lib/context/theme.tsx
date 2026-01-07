@@ -85,7 +85,9 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 				`${colorScheme === 'dark' ? 'light' : 'dark'}-content`,
 			);
 
-			hideSplash();
+			setTimeout(() => {
+				hideSplash();
+			}, 1000);
 		}
 	}, [storedTheme, colorScheme]);
 

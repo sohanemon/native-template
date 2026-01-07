@@ -27,7 +27,7 @@ export function DrawerFooter({ className, ...props }: DrawerFooterProps) {
 				size="icon"
 			>
 				<Icon.FontAwesome6
-					name="mark-github"
+					name="github"
 					size={20}
 					className="text-muted-foreground"
 				/>
