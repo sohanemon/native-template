@@ -7,7 +7,7 @@ import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
-import useCounter from '@/lib/store/counter';
+import { useCounter } from '@/lib/store/counter';
 import { api } from '@/lib/trpc/api';
 import { swipeGesture } from '@/lib/utils/swipe-gesture-handler';
 
