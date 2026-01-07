@@ -23,7 +23,7 @@
 		"test:log": "vitest run --reporter verbose",
 		"generate:assets": "bun lib/scripts/generate-assets.ts",
 		"analyze-bundle": "EXPO_UNSTABLE_ATLAS=true expo export --platform android && echo '📊 Bundle analysis complete! Run: npx expo-atlas' && npx expo-atlas",
-		"predev": "bun run generate:assets",
+		"predev": "bun x expo prebuild --clean -y; bun run generate:assets",
 		"prebuild": "bun run predev",
 		"prepare": "husky"
 	},
@@ -53,7 +53,6 @@
 		"expo-router": "^6.0.21",
 		"expo-secure-store": "~15.0.8",
 		"expo-server": "^1.0.5",
-		"expo-splash-screen": "^31.0.13",
 		"react": "19.1.0",
 		"react-dom": "19.1.0",
 		"react-native": "0.81.5",

@@ -69,6 +69,13 @@ export default function Home() {
 						)}
 					</View>
 				</Card>
+
+				<View className="mb-safe flex-1 justify-end pt-5">
+					<Text className="text-center">Remove TRPC and Tanstack Query?</Text>
+					<Text className="text-center" variant="muted">
+						Run `bun lib/scripts/remove-trpc-server.ts`
+					</Text>
+				</View>
 			</Container>
 		</GestureDetector>
 	);

@@ -48,7 +48,7 @@ export function ThemeSelect() {
 					className="text-2xl text-foreground"
 				/>
 			</SelectTrigger>
-			<SelectContent alignOffset={10} align="end">
+			<SelectContent align="end">
 				<SelectGroup>
 					<SelectLabel>Classic</SelectLabel>
 					{THEMES.slice(0, 2).map((theme) => (

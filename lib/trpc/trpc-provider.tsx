@@ -18,7 +18,7 @@ export function TRPCReactProvider({
 					transformer,
 					url:
 						process.env.EXPO_PUBLIC_TRPC_SERVER ||
-						'https://native-template.vercel.app/trpc',
+						'https://native-template.expo.app/trpc',
 				}),
 			],
 		}),

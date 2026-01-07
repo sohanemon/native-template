@@ -44,19 +44,6 @@ export const config: ExpoConfig = {
 				unstable_useServerMiddleware: true,
 			},
 		],
-		[
-			'expo-splash-screen',
-			{
-				image: './assets/icons/splash-icon-light.png',
-				imageWidth: 200,
-				resizeMode: 'contain',
-				backgroundColor: '#ffffff',
-				dark: {
-					image: './assets/icons/splash-icon-dark.png',
-					backgroundColor: '#000000',
-				},
-			},
-		],
 	],
 	experiments: {
 		typedRoutes: true,

@@ -1,4 +1,3 @@
-import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
 import { StatusBar } from 'react-native';
 import { Uniwind, useCSSVariable, useUniwind } from 'uniwind';
@@ -84,7 +83,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 				`${colorScheme === 'dark' ? 'light' : 'dark'}-content`,
 			);
 
-			SplashScreen.hide();
+			// SplashScreen.hide();
 		}
 	}, [storedTheme, colorScheme]);
 
