@@ -20,6 +20,8 @@ export default function DrawerLayout() {
 				swipeEnabled: true,
 				headerStyle: { backgroundColor: colors.background },
 				drawerStyle: { backgroundColor: colors.background },
+				drawerType: 'slide',
+				drawerPosition: 'left',
 			}}
 			drawerContent={DrawerContents}
 		>
