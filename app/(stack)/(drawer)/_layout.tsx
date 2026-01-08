@@ -3,7 +3,6 @@ import { DrawerContents } from '@/components/layout/drawer/drawer-contents';
 import { DrawerToggle } from '@/components/layout/drawer/drawer-toggle';
 import { HeaderTitle } from '@/components/layout/drawer/header-title';
 import { ThemeSelect } from '@/components/theme-select';
-import { drawerItems } from '@/lib/constants/drawer';
 import { useTheme } from '@/lib/context/theme';
 
 export default function DrawerLayout() {
@@ -25,15 +24,8 @@ export default function DrawerLayout() {
 			}}
 			drawerContent={DrawerContents}
 		>
-			{drawerItems.map((item) => (
-				<Drawer.Screen
-					key={item.route}
-					name={item.route}
-					options={{
-						title: item.label,
-					}}
-				/>
-			))}
+			<Drawer.Screen name="index" options={{ title: 'Home' }} />
+			<Drawer.Screen name="(tabs)" options={{ title: 'Tabs' }} />
 		</Drawer>
 	);
 }

@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
-type SplashType = { isVisible: boolean; hideSplash: () => void };
+type SplashType = { isSplashVisible: boolean; hideSplash: () => void };
 
 export const useSplash = create<SplashType>()((set) => ({
-	isVisible: true,
-	hideSplash: () => set({ isVisible: false }),
+	isSplashVisible: true,
+	hideSplash: () => set({ isSplashVisible: false }),
 }));

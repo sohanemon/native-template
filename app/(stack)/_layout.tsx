@@ -18,6 +18,10 @@ export default function StackLayout() {
 		>
 			<Stack.Screen name="(drawer)" options={{ headerShown: false }} />
 			<Stack.Screen name="other" options={{ headerTitle: 'Other Stack' }} />
+			<Stack.Screen
+				name="(stack)/setting"
+				options={{ headerTitle: 'Settings' }}
+			/>
 		</Stack>
 	);
 }
