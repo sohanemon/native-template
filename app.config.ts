@@ -44,7 +44,19 @@ export const config: ExpoConfig = {
 				unstable_useServerMiddleware: true,
 			},
 		],
-		'@lottiefiles/dotlottie-react-native/plugin',
+		[
+			'expo-splash-screen',
+			{
+				image: './assets/icons/splash-icon-dark.png',
+				imageWidth: 200,
+				resizeMode: 'contain',
+				backgroundColor: '#ffffff',
+				dark: {
+					image: './assets/icons/splash-icon-light.png',
+					backgroundColor: '#000000',
+				},
+			},
+		],
 	],
 	experiments: {
 		typedRoutes: true,

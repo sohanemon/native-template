@@ -5,6 +5,7 @@ import { GestureDetector } from 'react-native-gesture-handler';
 import { Container } from '@/components/layout/container';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import { swipeGesture } from '@/lib/utils/swipe-gesture-handler';
+import { ReanimatedExample } from '@/components/examples/reanimated';
 
 export default function Home() {
 	const router = useRouter();
@@ -29,6 +30,7 @@ export default function Home() {
 							<CardDescription>Swipe Left to Right for tab-2</CardDescription>
 						</Card>
 					</View>
+					<ReanimatedExample />
 				</Container>
 			</View>
 		</GestureDetector>

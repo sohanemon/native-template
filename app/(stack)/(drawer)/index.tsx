@@ -6,6 +6,7 @@ import { Icon } from '@/components/icon';
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
+import { Reanimated } from '@/components/ui/reanimated';
 import { Text } from '@/components/ui/text';
 import { useCounter } from '@/lib/store/counter';
 import { api } from '@/lib/trpc/api';
@@ -15,7 +16,7 @@ export default function Home() {
 	const { isLoading, data } = api.healthcheck.check.useQuery();
 	const navigation = useNavigation();
 	const isConnected = data?.status === 'OK';
-	const { count, increment, decrement } = useCounter();
+	const { count, increment, decrement, direction } = useCounter();
 
 	return (
 		<GestureDetector
@@ -32,61 +33,76 @@ export default function Home() {
 					</Text>
 				</View>
 
-				<Card className="p-6">
-					<View className="mb-4 flex-row items-center justify-between">
-						<CardTitle>System Status</CardTitle>
-						<Text className="text-sm">{isConnected ? 'LIVE' : 'OFFLINE'}</Text>
-					</View>
-					<View className="flex-row items-center">
-						<View
-							className={`top-2 mr-3 h-3 w-3 self-start rounded-full ${isConnected ? 'bg-green-500' : 'bg-gray-500'}`}
-						/>
-						<View className="flex-1">
-							<Text variant="large" className="mb-1">
-								TRPC Backend
+				<Reanimated asChild duration={200} entering="slide-up">
+					<Card className="p-6">
+						<View className="mb-4 flex-row items-center justify-between">
+							<CardTitle>System Status</CardTitle>
+							<Text className="text-sm">
+								{isConnected ? 'LIVE' : 'OFFLINE'}
 							</Text>
-							<CardDescription>
-								{isLoading
-									? 'Checking connection...'
-									: isConnected
-										? 'Connected to API'
-										: 'API Disconnected'}
-							</CardDescription>
 						</View>
-						{isLoading && (
-							<Icon.Ionicons
-								name="hourglass-outline"
-								size={20}
-								color="#9ca3af"
+						<View className="flex-row items-center">
+							<View
+								className={`top-2 mr-3 h-3 w-3 self-start rounded-full ${isConnected ? 'bg-green-500' : 'bg-gray-500'}`}
 							/>
-						)}
-						{!isLoading && isConnected && (
-							<Icon.Ionicons
-								name="checkmark-circle"
-								size={20}
-								color="#22c55e"
-							/>
-						)}
-						{!isLoading && !isConnected && (
-							<Icon.Ionicons name="close-circle" size={20} color="#ef4444" />
-						)}
-					</View>
-				</Card>
+							<View className="flex-1">
+								<Text variant="large" className="mb-1">
+									TRPC Backend
+								</Text>
+								<CardDescription>
+									{isLoading
+										? 'Checking connection...'
+										: isConnected
+											? 'Connected to API'
+											: 'API Disconnected'}
+								</CardDescription>
+							</View>
+							{isLoading && (
+								<Icon.Ionicons
+									name="hourglass-outline"
+									size={20}
+									color="#9ca3af"
+								/>
+							)}
+							{!isLoading && isConnected && (
+								<Icon.Ionicons
+									name="checkmark-circle"
+									size={20}
+									color="#22c55e"
+								/>
+							)}
+							{!isLoading && !isConnected && (
+								<Icon.Ionicons name="close-circle" size={20} color="#ef4444" />
+							)}
+						</View>
+					</Card>
+				</Reanimated>
 
-				<Card className="mt-4 p-6">
-					<CardTitle className="mb-4">Counter</CardTitle>
-					<View className="flex-row items-center justify-between">
-						<Button variant="outline" size="lg" onPress={decrement}>
-							<Icon.Feather name="minus" size={20} />
-						</Button>
-						<View className="min-w-16 items-center">
-							<Text variant="h2">{count}</Text>
+				<Reanimated asChild duration={200} delay={100} entering="slide-up">
+					<Card className="mt-4 p-6">
+						<CardTitle className="mb-4">Counter</CardTitle>
+						<View className="flex-row items-center justify-between">
+							<Button variant="outline" size="lg" onPress={decrement}>
+								<Icon.Feather name="minus" size={20} />
+							</Button>
+							<View className="min-w-16 items-center">
+								<Reanimated
+									as={Text}
+									key={count}
+									duration={200}
+									exiting={direction === 'forward' ? 'slide-down' : 'slide-up'}
+									entering={direction === 'forward' ? 'slide-up' : 'slide-down'}
+									variant="h2"
+								>
+									{count}
+								</Reanimated>
+							</View>
+							<Button variant="outline" size="lg" onPress={increment}>
+								<Icon.Feather name="plus" size={20} />
+							</Button>
 						</View>
-						<Button variant="outline" size="lg" onPress={increment}>
-							<Icon.Feather name="plus" size={20} />
-						</Button>
-					</View>
-				</Card>
+					</Card>
+				</Reanimated>
 
 				<View className="mb-safe-offset-5 flex-1 justify-end pt-5">
 					<Text className="text-center">Remove TRPC and Tanstack Query?</Text>
