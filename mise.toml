@@ -1,3 +1,4 @@
 [tools]
 node = "latest"
+java = "17"              # Gradle requires 17
 "npm:eas-cli" = "latest"

@@ -44,6 +44,7 @@ export const config: ExpoConfig = {
 				unstable_useServerMiddleware: true,
 			},
 		],
+		'@lottiefiles/dotlottie-react-native/plugin',
 	],
 	experiments: {
 		typedRoutes: true,

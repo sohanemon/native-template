@@ -18,6 +18,9 @@ config.transformer.getTransformOptions = async () => ({
 	},
 });
 
+// NOTE: for .lottie file support
+config.resolver.assetExts?.push('lottie');
+
 const uniwindConfig = withUniwindConfig(config, {
 	cssEntryFile: './styles/global.css',
 	dtsFile: './types/uniwind-types.d.ts',

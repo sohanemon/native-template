@@ -1,8 +1,8 @@
 import '@/styles/global.css';
 import { PortalHost } from '@rn-primitives/portal';
 import { Slot } from 'expo-router';
-import LottieView from 'lottie-react-native';
 import { View } from 'react-native';
+import { Splash } from '@/components/splash';
 import { Providers } from '@/lib/context/providers';
 import { useSplash } from '@/lib/store/splash';
 import { cn } from '@/lib/utils';
@@ -12,26 +12,13 @@ export const unstable_settings = {
 };
 
 export default function Layout() {
-	const { isSplashVisible: isVisible } = useSplash();
+	const { isSplashVisible: showSplash } = useSplash();
 
 	return (
+		// NOTE: bg is important, unless it can have white flickering on dark theme
 		<View className={cn('flex-1', 'bg-background text-foreground')}>
 			<Providers>
-				{isVisible ? (
-					<View className="flex-1 items-center justify-center">
-						<LottieView
-							source={require('@/assets/splash.json')}
-							autoPlay
-							resizeMode="contain"
-							style={{
-								width: 300,
-								height: 300,
-							}}
-						/>
-					</View>
-				) : (
-					<Slot />
-				)}
+				{showSplash ? <Splash /> : <Slot />}
 				<PortalHost />
 			</Providers>
 		</View>
