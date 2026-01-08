@@ -1,4 +1,5 @@
 import { healthcheckRouter } from './routers/healthcheck';
+import { infoRouter } from './routers/info';
 import { createTRPCRouter } from './trpc';
 
 /**
@@ -8,6 +9,7 @@ import { createTRPCRouter } from './trpc';
  */
 export const appRouter = createTRPCRouter({
 	healthcheck: healthcheckRouter,
+	info: infoRouter,
 });
 
 // export type definition of API

@@ -42,6 +42,7 @@ export const config: ExpoConfig = {
 			'expo-router',
 			{
 				unstable_useServerMiddleware: true,
+				origin: 'https://native-template.vercel.app',
 			},
 		],
 		[

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StatusBar } from 'react-native';
 import { Uniwind, useCSSVariable, useUniwind } from 'uniwind';
 import { useStorageState } from '../hooks/useStorageState';
-import { useSplash } from '../store/splash';
+import { SplashScreen } from 'expo-router';
 
 export type ThemeName = ReturnType<typeof useUniwind>['theme'];
 
@@ -40,7 +40,6 @@ const ThemeContext = React.createContext<ThemeContextType | undefined>(
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 	const { theme: defaultValue } = useUniwind();
-	const { hideSplash } = useSplash();
 	const [storedTheme, setStoredTheme] = useStorageState<ThemeName>(
 		'app-theme',
 		{
@@ -85,9 +84,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 				`${colorScheme === 'dark' ? 'light' : 'dark'}-content`,
 			);
 
-			setTimeout(() => {
-				hideSplash();
-			}, 1000);
+			SplashScreen.hideAsync();
 		}
 	}, [storedTheme, colorScheme]);
 

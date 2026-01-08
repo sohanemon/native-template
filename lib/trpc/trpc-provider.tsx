@@ -16,9 +16,7 @@ export function TRPCReactProvider({
 			links: [
 				httpBatchLink({
 					transformer,
-					url:
-						process.env.EXPO_PUBLIC_TRPC_SERVER ||
-						'https://native-template.expo.app/trpc',
+					url: '/trpc',
 				}),
 			],
 		}),

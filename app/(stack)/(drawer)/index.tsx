@@ -33,7 +33,7 @@ export default function Home() {
 					</Text>
 				</View>
 
-				<Reanimated asChild duration={200} entering="slide-up">
+				<Reanimated duration={200} entering="slide-up">
 					<Card className="p-6">
 						<View className="mb-4 flex-row items-center justify-between">
 							<CardTitle>System Status</CardTitle>
@@ -78,7 +78,7 @@ export default function Home() {
 					</Card>
 				</Reanimated>
 
-				<Reanimated asChild duration={200} delay={100} entering="slide-up">
+				<Reanimated duration={200} delay={100} entering="slide-up">
 					<Card className="mt-4 p-6">
 						<CardTitle className="mb-4">Counter</CardTitle>
 						<View className="flex-row items-center justify-between">
