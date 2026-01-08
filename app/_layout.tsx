@@ -15,13 +15,7 @@ export default function Layout() {
 	const { isSplashVisible: isVisible } = useSplash();
 
 	return (
-		<View
-			className={cn(
-				'flex-1',
-				// theme.includes('dark') ? 'bg-black' : 'bg-white',
-				'bg-background text-foreground',
-			)}
-		>
+		<View className={cn('flex-1', 'bg-background text-foreground')}>
 			<Providers>
 				{isVisible ? (
 					<View className="flex-1 items-center justify-center">

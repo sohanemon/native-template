@@ -25,7 +25,7 @@ export default function Home() {
 				},
 			})}
 		>
-			<Container className="p-6">
+			<Container>
 				<View className="mb-6 py-4">
 					<Text variant="h1" className="mb-2 text-primary">
 						Native Template

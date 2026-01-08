@@ -1,24 +1,11 @@
 import { Tabs } from 'expo-router/tabs';
+
 import { Icon } from '@/components/icon';
-import { useTheme } from '@/lib/context/theme';
+import { TabsLayout } from '@/components/layout/tabs/tabs-layout';
 
-export default function TabLayout() {
-	const { colors } = useTheme();
-
+export default function () {
 	return (
-		<Tabs
-			screenOptions={{
-				headerShown: false,
-				tabBarStyle: {
-					backgroundColor: colors.background,
-				},
-				tabBarActiveTintColor: colors.primary,
-				animation: 'none',
-				sceneStyle: {
-					backgroundColor: colors.background,
-				},
-			}}
-		>
+		<TabsLayout>
 			<Tabs.Screen
 				name="index"
 				options={{
@@ -37,6 +24,6 @@ export default function TabLayout() {
 					),
 				}}
 			/>
-		</Tabs>
+		</TabsLayout>
 	);
 }

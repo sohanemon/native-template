@@ -1,7 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { ScrollView, View, type ViewProps } from 'react-native';
 import Animated, { type AnimatedProps } from 'react-native-reanimated';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { cn } from '@/lib/utils';
 
 const AnimatedView = Animated.createAnimatedComponent(View);
@@ -15,14 +14,9 @@ export function Container({
 	className,
 	...props
 }: PropsWithChildren<Props>) {
-	const insets = useSafeAreaInsets();
-
 	return (
 		<AnimatedView
-			className={cn('flex-1 bg-background', className)}
-			style={{
-				paddingBottom: insets.bottom,
-			}}
+			className={cn('flex-1 px-4 py-3 pb-safe', className)}
 			{...props}
 		>
 			<ScrollView contentContainerStyle={{ flexGrow: 1 }}>

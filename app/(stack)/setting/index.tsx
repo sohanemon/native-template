@@ -6,14 +6,9 @@ import { Text } from '@/components/ui/text';
 export default function Setting() {
 	return (
 		<Container>
-			<View className="flex flex-1 justify-center gap-4">
-				<View className="items-center">
-					<Text className="text-2xl font-semibold">Settings</Text>
-					<Text variant="muted">Choose your preferred theme</Text>
-				</View>
-				<View className="items-center">
-					<ThemeSelect />
-				</View>
+			<View className="flex-row items-center justify-between">
+				<Text>Choose your preferred theme</Text>
+				<ThemeSelect showTitle className="origin-right scale-75" />
 			</View>
 		</Container>
 	);

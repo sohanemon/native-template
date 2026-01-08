@@ -22,7 +22,7 @@ export default function Home() {
 			})}
 		>
 			<View className="flex-1">
-				<Container className="p-6">
+				<Container>
 					<View className="flex-1 items-center justify-center">
 						<Card className="items-center p-8">
 							<CardTitle className="mb-2 text-3xl">Tab 1</CardTitle>
