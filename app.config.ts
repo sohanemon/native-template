@@ -63,7 +63,7 @@ export const config: ExpoConfig = {
 		typedRoutes: true,
 		reactCompiler: true,
 	},
-	updates: { assetPatternsToBeBundled: ['assets/updates/**'] },
+	updates: { assetPatternsToBeBundled: ['assets/static/**'] },
 	extra: {
 		router: {
 			unstable_useServerMiddleware: true,

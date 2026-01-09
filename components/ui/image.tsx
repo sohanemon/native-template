@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import type { ImageStyle, StyleProp } from 'react-native';
-import { type AssetPath, Assets } from '@/lib/constants/assets';
+import { type AssetPath, StaticAssets } from '@/lib/assets/static';
 import { cn } from '@/lib/utils';
 
 type ImgProps = {
@@ -30,7 +30,7 @@ function Img({
 	let source = src;
 
 	if (typeof src === 'string' && src.startsWith('/')) {
-		if (src in Assets) source = Assets[src as AssetPath];
+		if (src in StaticAssets) source = StaticAssets[src as AssetPath];
 	}
 
 	const finalStyle: ImageStyle = {

@@ -50,9 +50,19 @@ Elevate your React Native development with this premium template featuring **ful
 - **Package Manager**: Bun (lightning-fast)
 - **State**: React Query for server state, Context for UI state
 
-## 📱 Quick Start
+## 🚀 Quick Start
 
-Get up and running in minutes:
+Get up and running in minutes using the template:
+
+```bash
+npx create-expo-app --template sohanemon/native-template my-app
+cd my-app
+bun install
+cp .env.example .env
+bun run dev
+```
+
+Or clone the repository directly:
 
 ```bash
 git clone https://github.com/sohanemon/native-template.git

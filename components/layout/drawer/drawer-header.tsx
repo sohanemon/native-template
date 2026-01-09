@@ -14,7 +14,7 @@ export function DrawerHeader({ className, ...props }: DrawerHeaderProps) {
 		>
 			<View className="rounded-xl bg-muted p-4">
 				<Img
-					src="/updates/logo.png"
+					src="/static/logo.png"
 					width={60}
 					className="invert"
 					contentFit="contain"
