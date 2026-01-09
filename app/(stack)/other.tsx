@@ -7,6 +7,7 @@ import { api } from '@/lib/trpc/api';
 
 export default function DrawerOther() {
 	const { data } = api.info.lottieSplash.useQuery();
+
 	return (
 		<Container>
 			<View className="flex flex-1 justify-center">

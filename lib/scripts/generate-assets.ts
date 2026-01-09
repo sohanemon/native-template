@@ -1,11 +1,13 @@
 #!/usr/bin/env bun
 
+// NOTE: from /assets/updates folder will be bundled into app
+
 import type { Stats } from 'node:fs';
 import { mkdir, readdir, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const PROJECT_ROOT = path.resolve(__dirname, '../..');
-const ASSETS_DIR = path.join(PROJECT_ROOT, 'assets');
+const ASSETS_DIR = path.join(PROJECT_ROOT, 'assets', 'updates');
 const OUTPUT_FILE = path.join(PROJECT_ROOT, 'lib', 'constants', 'assets.ts');
 
 const VALID_EXTENSIONS = new Set([
@@ -80,10 +82,10 @@ async function main() {
 			const relativeToAssets = path.relative(ASSETS_DIR, file);
 			const slashRelative = normalizeSlash(relativeToAssets);
 
-			const key = `/${slashRelative}`;
+			const key = `/updates/${slashRelative}`;
 			assertSafeKey(key);
 
-			const requirePath = `@/assets/${slashRelative}`;
+			const requirePath = `@/assets/updates/${slashRelative}`;
 
 			assets.push({ key, requirePath });
 		}

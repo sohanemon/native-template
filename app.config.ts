@@ -7,7 +7,7 @@ export const config: ExpoConfig = {
 	slug: packageJson.name,
 	version: packageJson.version,
 	orientation: 'portrait',
-	icon: './assets/logo.png',
+	icon: './assets/icons/adaptive-icon.png',
 	scheme: packageJson.name,
 	userInterfaceStyle: 'automatic',
 	newArchEnabled: true,
@@ -63,6 +63,7 @@ export const config: ExpoConfig = {
 		typedRoutes: true,
 		reactCompiler: true,
 	},
+	updates: { assetPatternsToBeBundled: ['assets/updates/**'] },
 	extra: {
 		router: {
 			unstable_useServerMiddleware: true,
