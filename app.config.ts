@@ -11,6 +11,7 @@ export const config: ExpoConfig = {
 	scheme: packageJson.name,
 	userInterfaceStyle: 'automatic',
 	newArchEnabled: true,
+	jsEngine: 'hermes',
 	ios: {
 		supportsTablet: true,
 		bundleIdentifier: 'com.sohanemon.nativetemplate',

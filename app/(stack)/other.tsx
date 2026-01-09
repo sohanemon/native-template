@@ -6,7 +6,7 @@ import { Text } from '@/components/ui/text';
 import { api } from '@/lib/trpc/api';
 
 export default function DrawerOther() {
-	const { data } = api.info.lottieSplash.useQuery();
+	const { data } = api.asset.lottieSplash.useQuery();
 
 	return (
 		<Container>

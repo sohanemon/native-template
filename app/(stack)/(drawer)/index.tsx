@@ -11,9 +11,14 @@ import { Text } from '@/components/ui/text';
 import { useCounter } from '@/lib/store/counter';
 import { api } from '@/lib/trpc/api';
 import { swipeGesture } from '@/lib/utils/swipe-gesture-handler';
+import { Img } from '@/components/ui/image';
 
 export default function Home() {
 	const { isLoading, data } = api.healthcheck.check.useQuery();
+	const { data: url } = api.asset.from.useQuery({
+		path: '/remote/logo.png',
+	});
+	console.info('⚡[index.tsx:18] url:', url);
 	const navigation = useNavigation();
 	const isConnected = data?.status === 'OK';
 	const { count, increment, decrement, direction } = useCounter();
@@ -32,6 +37,7 @@ export default function Home() {
 						Native Template
 					</Text>
 				</View>
+				<Img width={300} src={url?.url ?? ''} />
 
 				<Reanimated duration={200} entering="slide-up">
 					<Card className="p-6">

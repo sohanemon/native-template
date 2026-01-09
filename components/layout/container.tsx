@@ -19,7 +19,10 @@ export function Container({
 			className={cn('flex-1 px-4 py-3 pb-safe', className)}
 			{...props}
 		>
-			<ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+			<ScrollView
+				showsVerticalScrollIndicator={false}
+				contentContainerStyle={{ flexGrow: 1 }}
+			>
 				{children}
 			</ScrollView>
 		</AnimatedView>

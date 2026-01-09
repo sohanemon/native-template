@@ -1,5 +1,5 @@
+import { assetRouter } from './routers/asset';
 import { healthcheckRouter } from './routers/healthcheck';
-import { infoRouter } from './routers/info';
 import { createTRPCRouter } from './trpc';
 
 /**
@@ -9,7 +9,7 @@ import { createTRPCRouter } from './trpc';
  */
 export const appRouter = createTRPCRouter({
 	healthcheck: healthcheckRouter,
-	info: infoRouter,
+	asset: assetRouter,
 });
 
 // export type definition of API
