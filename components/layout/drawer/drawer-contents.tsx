@@ -18,8 +18,8 @@ export function DrawerContents(props: DrawerContentComponentProps) {
 
 				<DrawerBody
 					className="flex-1"
-					navigation={props.navigation}
 					currentRoute={currentRoute}
+					navigation={props.navigation}
 				/>
 
 				<DrawerFooter className="mb-safe border-muted border-t pt-4 pb-2" />

@@ -19,7 +19,7 @@ export function TRPCReactProvider({
 					url: '/trpc',
 				}),
 			],
-		}),
+		})
 	);
 
 	return (

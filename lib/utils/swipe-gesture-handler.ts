@@ -29,7 +29,7 @@ export function swipeGesture({
 				.onEnd(() => {
 					'worklet';
 					scheduleOnRN(onRight);
-				}),
+				})
 		);
 	}
 
@@ -41,7 +41,7 @@ export function swipeGesture({
 				.onEnd(() => {
 					'worklet';
 					scheduleOnRN(onLeft);
-				}),
+				})
 		);
 	}
 
@@ -53,7 +53,7 @@ export function swipeGesture({
 				.onEnd(() => {
 					'worklet';
 					scheduleOnRN(onDown);
-				}),
+				})
 		);
 	}
 
@@ -65,7 +65,7 @@ export function swipeGesture({
 				.onEnd(() => {
 					'worklet';
 					scheduleOnRN(onUp);
-				}),
+				})
 		);
 	}
 

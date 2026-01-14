@@ -14,13 +14,13 @@ export function DrawerHeader({ className, ...props }: DrawerHeaderProps) {
 		>
 			<View className="rounded-xl bg-muted p-4">
 				<Img
-					src="/static/logo.png"
-					width={60}
 					className="invert"
 					contentFit="contain"
+					src="/static/logo.png"
+					width={60}
 				/>
 			</View>
-			<Text variant="h4" className="pt-4">
+			<Text className="pt-4" variant="h4">
 				{appConfig.name}
 			</Text>
 			<Text variant="muted"> v{appConfig.version}</Text>

@@ -11,12 +11,12 @@ export function HeaderTitle({ children }: HeaderTitleProps) {
 
 	return (
 		<Pressable
+			className="py-2"
 			onPress={() => {
 				navigation.dispatch(DrawerActions.openDrawer());
 			}}
-			className="py-2"
 		>
-			<Text variant="h4" className="font-semibold text-foreground">
+			<Text className="font-semibold text-foreground" variant="h4">
 				{children}
 			</Text>
 		</Pressable>

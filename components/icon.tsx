@@ -30,7 +30,7 @@ export type IconProps<T extends ElementType> = ComponentPropsWithoutRef<T> &
 	VariantProps;
 
 const createIconWithVariants = <T extends ElementType>(
-	IconComponent: T,
+	IconComponent: T
 ): FC<IconProps<T>> => {
 	const UniwindIcon = withUniwind(IconComponent as React.ComponentType);
 

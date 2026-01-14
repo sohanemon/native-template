@@ -8,7 +8,7 @@ export default function Setting() {
 		<Container>
 			<View className="flex-row items-center justify-between">
 				<Text>Choose your preferred theme</Text>
-				<ThemeSelect showTitle className="origin-right scale-75" />
+				<ThemeSelect className="origin-right scale-75" showTitle />
 			</View>
 		</Container>
 	);

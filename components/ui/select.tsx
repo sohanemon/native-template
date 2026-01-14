@@ -23,12 +23,12 @@ function SelectValue({
 	const { value } = SelectPrimitive.useRootContext();
 	return (
 		<SelectPrimitive.Value
-			ref={ref}
 			className={cn(
 				'line-clamp-1 flex flex-row items-center gap-2 text-foreground text-sm',
 				!value && 'text-muted-foreground',
-				className,
+				className
 			)}
+			ref={ref}
 			{...props}
 		/>
 	);
@@ -49,7 +49,6 @@ function SelectTrigger({
 	}) {
 	return (
 		<SelectPrimitive.Trigger
-			ref={ref}
 			className={cn(
 				'flex h-10 flex-row items-center justify-between gap-2 rounded-md border border-input bg-background px-3 py-2 shadow-black/5 hover:shadow-sm sm:h-9 dark:bg-input/30 dark:active:bg-input/50',
 				Platform.select({
@@ -57,16 +56,17 @@ function SelectTrigger({
 				}),
 				props.disabled && 'opacity-50',
 				size === 'sm' && 'h-8 py-2 sm:py-1.5',
-				className,
+				className
 			)}
+			ref={ref}
 			{...props}
 		>
 			{children}
 			{icon && (
 				<Icon.Ionicons
-					name="chevron-down"
 					aria-hidden={true}
 					className="size-4 text-muted-foreground"
+					name="chevron-down"
 				/>
 			)}
 		</SelectPrimitive.Trigger>
@@ -101,7 +101,7 @@ function SelectContent({
 									web: cn(
 										'fade-in-0 zoom-in-95 max-h-52 origin-(--radix-select-content-transform-origin) animate-in overflow-y-auto overflow-x-hidden',
 										props.side === 'bottom' && 'slide-in-from-top-2',
-										props.side === 'top' && 'slide-in-from-bottom-2',
+										props.side === 'top' && 'slide-in-from-bottom-2'
 									),
 									native: 'p-1',
 								}),
@@ -109,10 +109,10 @@ function SelectContent({
 									Platform.select({
 										web: cn(
 											props.side === 'bottom' && 'translate-y-1',
-											props.side === 'top' && '-translate-y-1',
+											props.side === 'top' && '-translate-y-1'
 										),
 									}),
-								className,
+								className
 							)}
 							position={position}
 							{...props}
@@ -126,8 +126,8 @@ function SelectContent({
 											'w-full',
 											Platform.select({
 												web: 'h-(--radix-select-trigger-height) min-w-(--radix-select-trigger-width)',
-											}),
-										),
+											})
+										)
 								)}
 							>
 								{children}
@@ -149,7 +149,7 @@ function SelectLabel({
 		<SelectPrimitive.Label
 			className={cn(
 				'px-2 py-2 text-muted-foreground text-xs sm:py-1.5',
-				className,
+				className
 			)}
 			{...props}
 		/>
@@ -169,15 +169,15 @@ function SelectItem({
 					web: 'cursor-default outline-none focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none [&_svg]:pointer-events-none *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2',
 				}),
 				props.disabled && 'opacity-50',
-				className,
+				className
 			)}
 			{...props}
 		>
 			<View className="absolute right-2 flex size-3.5 items-center justify-center">
 				<SelectPrimitive.ItemIndicator>
 					<Icon.Ionicons
-						name="checkmark"
 						className="size-4 shrink-0 text-muted-foreground"
+						name="checkmark"
 					/>
 				</SelectPrimitive.ItemIndicator>
 			</View>
@@ -196,7 +196,7 @@ function SelectSeparator({
 			className={cn(
 				'-mx-1 my-1 h-px bg-border',
 				Platform.select({ web: 'pointer-events-none' }),
-				className,
+				className
 			)}
 			{...props}
 		/>
@@ -218,11 +218,11 @@ function SelectScrollUpButton({
 		<SelectPrimitive.ScrollUpButton
 			className={cn(
 				'flex cursor-default items-center justify-center py-1',
-				className,
+				className
 			)}
 			{...props}
 		>
-			<Icon.Ionicons name="chevron-up" className="size-4" />
+			<Icon.Ionicons className="size-4" name="chevron-up" />
 		</SelectPrimitive.ScrollUpButton>
 	);
 }
@@ -242,11 +242,11 @@ function SelectScrollDownButton({
 		<SelectPrimitive.ScrollDownButton
 			className={cn(
 				'flex cursor-default items-center justify-center py-1',
-				className,
+				className
 			)}
 			{...props}
 		>
-			<Icon.Ionicons name="chevron-down" className="size-4" />
+			<Icon.Ionicons className="size-4" name="chevron-down" />
 		</SelectPrimitive.ScrollDownButton>
 	);
 }

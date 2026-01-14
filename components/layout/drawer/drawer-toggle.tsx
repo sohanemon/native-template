@@ -7,8 +7,8 @@ export const DrawerToggle = () => {
 
 	return (
 		<Icon.FontAwesome6
-			name="equals"
 			className="pr-1.5 pl-3 text-foreground text-lg"
+			name="equals"
 			onPress={() => {
 				navigation.dispatch(DrawerActions.openDrawer());
 			}}

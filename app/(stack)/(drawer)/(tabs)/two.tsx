@@ -1,11 +1,10 @@
 import { useRouter } from 'expo-router';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { GestureDetector } from 'react-native-gesture-handler';
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import { swipeGesture } from '@/lib/utils/swipe-gesture-handler';
-import { Alert } from 'react-native';
 
 export default function TabTwo() {
 	const router = useRouter();

@@ -63,7 +63,7 @@ try {
 	if (removedCount > 0) {
 		writeFileSync(
 			packageJsonPath,
-			`${JSON.stringify(packageJson, null, '\t')}\n`,
+			`${JSON.stringify(packageJson, null, '\t')}\n`
 		);
 		console.log('Updated package.json');
 	}
@@ -80,14 +80,14 @@ try {
 	configContent = configContent.replace(/\s*output: 'server',\n/g, '');
 	configContent = configContent.replace(
 		/\s*unstable_useServerMiddleware: true,\n/g,
-		'',
+		''
 	);
 	// Remove empty objects in plugins
 	configContent = configContent.replace(/{\s*},\n/g, '{\n\t\t\t},\n');
 	// Remove router block in extra
 	configContent = configContent.replace(
 		/\s*router: {\s*unstable_useServerMiddleware: true,\s*},\n/g,
-		'',
+		''
 	);
 
 	writeFileSync(configPath, configContent);
@@ -106,11 +106,11 @@ for (const file of filesToClean) {
 	// Remove tRPC imports
 	content = content.replace(
 		/import\s+{[^}]*}\s+from\s+['"][^'"]*trpc[^'"]*['"];?\n/g,
-		'',
+		''
 	);
 	content = content.replace(
 		/import\s+.*\s+from\s+['"][^'"]*trpc[^'"]*['"];?\n/g,
-		'',
+		''
 	);
 
 	// Remove tRPC usage (basic patterns)
@@ -121,11 +121,11 @@ for (const file of filesToClean) {
 	// Remove unused imports (basic)
 	content = content.replace(
 		/import\s+{[^}]*Icon[^}]*}\s+from\s+['"][^'"]*['"];?\n/g,
-		'',
+		''
 	);
 	content = content.replace(
 		/import\s+{[^}]*Card[^}]*}\s+from\s+['"][^'"]*['"];?\n/g,
-		'',
+		''
 	);
 
 	// Remove the entire Card block

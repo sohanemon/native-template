@@ -6,6 +6,6 @@ describe('Example Test Suite', () => {
 	});
 
 	it('should handle string concatenation', () => {
-		expect('hello' + ' ' + 'world').toBe('hello world');
+		expect('hello world').toBe('hello world');
 	});
 });

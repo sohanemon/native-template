@@ -20,8 +20,8 @@ export function Container({
 			{...props}
 		>
 			<ScrollView
-				showsVerticalScrollIndicator={false}
 				contentContainerStyle={{ flexGrow: 1 }}
+				showsVerticalScrollIndicator={false}
 			>
 				{children}
 			</ScrollView>

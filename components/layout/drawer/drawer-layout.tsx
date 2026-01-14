@@ -3,9 +3,9 @@ import type * as React from 'react';
 
 import { ThemeSelect } from '@/components/theme-select';
 import { useTheme } from '@/lib/context/theme';
-import { HeaderTitle } from './header-title';
-import { DrawerToggle } from './drawer-toggle';
 import { DrawerContents } from './drawer-contents';
+import { DrawerToggle } from './drawer-toggle';
+import { HeaderTitle } from './header-title';
 
 type DrawerLayoutProps = React.ComponentProps<typeof Drawer> & {
 	children?: React.ReactNode;
@@ -22,6 +22,7 @@ export function DrawerLayout({
 
 	return (
 		<Drawer
+			drawerContent={DrawerContents}
 			screenOptions={{
 				headerTintColor: colors.foreground,
 				headerTitle: HeaderTitle,
@@ -38,7 +39,6 @@ export function DrawerLayout({
 				},
 				...screenOptions,
 			}}
-			drawerContent={DrawerContents}
 			{...props}
 		>
 			{children}

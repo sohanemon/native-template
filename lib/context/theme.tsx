@@ -1,8 +1,8 @@
+import { SplashScreen } from 'expo-router';
 import * as React from 'react';
 import { StatusBar } from 'react-native';
 import { Uniwind, useCSSVariable, useUniwind } from 'uniwind';
 import { useStorageState } from '../hooks/useStorageState';
-import { SplashScreen } from 'expo-router';
 
 export type ThemeName = ReturnType<typeof useUniwind>['theme'];
 
@@ -35,7 +35,7 @@ type ThemeContextType = {
 };
 
 const ThemeContext = React.createContext<ThemeContextType | undefined>(
-	undefined,
+	undefined
 );
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
@@ -44,14 +44,14 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 		'app-theme',
 		{
 			defaultValue,
-		},
+		}
 	);
 
 	const colorValues = useCSSVariable(COLORS.map((c) => `--color-${c}`));
 
 	const colorScheme: ThemeContextType['colorScheme'] = React.useMemo(
 		() => (storedTheme?.includes('dark') ? 'dark' : 'light'),
-		[storedTheme],
+		[storedTheme]
 	);
 
 	const colors = React.useMemo(
@@ -64,16 +64,16 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
 					return acc;
 				},
-				{} as ThemeContextType['colors'],
+				{} as ThemeContextType['colors']
 			),
-		[colorValues],
+		[colorValues]
 	);
 
 	const setTheme = React.useCallback(
 		async (newTheme: ThemeName) => {
 			await setStoredTheme(newTheme);
 		},
-		[setStoredTheme],
+		[setStoredTheme]
 	);
 
 	React.useEffect(() => {
@@ -81,7 +81,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 			Uniwind.setTheme(storedTheme);
 
 			StatusBar.setBarStyle(
-				`${colorScheme === 'dark' ? 'light' : 'dark'}-content`,
+				`${colorScheme === 'dark' ? 'light' : 'dark'}-content`
 			);
 
 			SplashScreen.hideAsync();
@@ -95,7 +95,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 			colors,
 			colorScheme,
 		}),
-		[storedTheme, setTheme, colors, colorScheme],
+		[storedTheme, setTheme, colors, colorScheme]
 	);
 
 	return (

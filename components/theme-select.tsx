@@ -53,13 +53,13 @@ export function ThemeSelect({
 			}}
 		>
 			<SelectTrigger
-				icon={false}
 				className={cn('h-fit w-fit', !showTitle && 'border-0', className)}
+				icon={false}
 				{...props}
 			>
 				<Icon.Ionicons
-					name="color-palette-outline"
 					className="text-2xl text-foreground"
+					name="color-palette-outline"
 				/>
 				{showTitle && (
 					<SelectValue className="text-base" placeholder={currentTheme} />

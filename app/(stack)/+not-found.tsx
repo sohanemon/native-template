@@ -13,7 +13,7 @@ export default function NotFoundScreen() {
 			<Container>
 				<View className="flex-1 items-center justify-center p-6">
 					<Card className="max-w-md items-center p-8">
-						<Text variant="h1" className="mb-4">
+						<Text className="mb-4" variant="h1">
 							🤔
 						</Text>
 						<CardTitle className="mb-2 text-center text-2xl">
@@ -22,7 +22,7 @@ export default function NotFoundScreen() {
 						<CardDescription className="mb-6 text-center">
 							Sorry, the page you're looking for doesn't exist.
 						</CardDescription>
-						<Button variant="secondary" href="/">
+						<Button href="/" variant="secondary">
 							Go to Home
 						</Button>
 					</Card>

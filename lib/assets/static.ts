@@ -4,7 +4,7 @@
  */
 
 export const StaticAssets = {
-  '/static/logo.png': require('@/assets/static/logo.png'),
+	'/static/logo.png': require('@/assets/static/logo.png'),
 } as const;
 
 export type StaticAssetPath = keyof typeof StaticAssets;

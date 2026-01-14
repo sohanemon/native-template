@@ -83,7 +83,7 @@ async function generateAssetsForConfig(config: (typeof ASSET_CONFIGS)[number]) {
 
 	if (!stats.isDirectory()) {
 		console.warn(
-			`⚠️ Assets path is not a directory: ${config.sourceDir}, skipping...`,
+			`⚠️ Assets path is not a directory: ${config.sourceDir}, skipping...`
 		);
 		return 0;
 	}
@@ -150,7 +150,7 @@ async function main() {
 		console.warn('⚠️ No valid asset files found in any folder.');
 	} else {
 		console.log(
-			`\n🎉 Total: ${totalAssets} assets generated from ${ASSET_CONFIGS.length} sources`,
+			`\n🎉 Total: ${totalAssets} assets generated from ${ASSET_CONFIGS.length} sources`
 		);
 	}
 }

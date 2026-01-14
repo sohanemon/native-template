@@ -29,9 +29,8 @@ function Img({
 }: ImgProps) {
 	let source = src;
 
-	if (typeof src === 'string' && src.startsWith('/')) {
-		if (src in StaticAssets) source = StaticAssets[src as AssetPath];
-	}
+	if (typeof src === 'string' && src.startsWith('/') && src in StaticAssets)
+		source = StaticAssets[src as AssetPath];
 
 	const finalStyle: ImageStyle = {
 		width,
@@ -41,12 +40,12 @@ function Img({
 
 	return (
 		<Image
-			source={source}
-			placeholder={placeholder}
-			contentFit={contentFit}
-			className={cn(className)}
-			style={finalStyle}
 			alt={alt}
+			className={cn(className)}
+			contentFit={contentFit}
+			placeholder={placeholder}
+			source={source}
+			style={finalStyle}
 			{...props}
 		/>
 	);

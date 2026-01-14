@@ -10,9 +10,9 @@ export function StackBack({ className, ...props }: StackBackProps) {
 
 	return (
 		<Icon.FontAwesome6
-			name="chevron-left"
 			className={cn('h-full w-5 text-foreground text-lg', className)}
 			hitSlop={10}
+			name="chevron-left"
 			onPress={() => {
 				navigation.goBack();
 			}}

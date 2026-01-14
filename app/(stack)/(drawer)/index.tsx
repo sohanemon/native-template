@@ -6,12 +6,12 @@ import { Icon } from '@/components/icon';
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
+import { Img } from '@/components/ui/image';
 import { Reanimated } from '@/components/ui/reanimated';
 import { Text } from '@/components/ui/text';
 import { useCounter } from '@/lib/store/counter';
 import { api } from '@/lib/trpc/api';
 import { swipeGesture } from '@/lib/utils/swipe-gesture-handler';
-import { Img } from '@/components/ui/image';
 
 export default function Home() {
 	const { isLoading, data } = api.healthcheck.check.useQuery();
@@ -33,11 +33,11 @@ export default function Home() {
 		>
 			<Container>
 				<View className="mb-6 py-4">
-					<Text variant="h1" className="mb-2 text-primary">
+					<Text className="mb-2 text-primary" variant="h1">
 						Native Template
 					</Text>
 				</View>
-				<Img width={300} src={url?.url ?? ''} />
+				<Img src={url?.url ?? ''} width={300} />
 
 				<Reanimated duration={200} entering="slide-up">
 					<Card className="p-6">
@@ -52,7 +52,7 @@ export default function Home() {
 								className={`top-2 mr-3 h-3 w-3 self-start rounded-full ${isConnected ? 'bg-green-500' : 'bg-gray-500'}`}
 							/>
 							<View className="flex-1">
-								<Text variant="large" className="mb-1">
+								<Text className="mb-1" variant="large">
 									TRPC Backend
 								</Text>
 								<CardDescription>
@@ -65,45 +65,45 @@ export default function Home() {
 							</View>
 							{isLoading && (
 								<Icon.Ionicons
+									color="#9ca3af"
 									name="hourglass-outline"
 									size={20}
-									color="#9ca3af"
 								/>
 							)}
 							{!isLoading && isConnected && (
 								<Icon.Ionicons
+									color="#22c55e"
 									name="checkmark-circle"
 									size={20}
-									color="#22c55e"
 								/>
 							)}
-							{!isLoading && !isConnected && (
-								<Icon.Ionicons name="close-circle" size={20} color="#ef4444" />
+							{!(isLoading || isConnected) && (
+								<Icon.Ionicons color="#ef4444" name="close-circle" size={20} />
 							)}
 						</View>
 					</Card>
 				</Reanimated>
 
-				<Reanimated duration={200} delay={100} entering="slide-up">
+				<Reanimated delay={100} duration={200} entering="slide-up">
 					<Card className="mt-4 p-6">
 						<CardTitle className="mb-4">Counter</CardTitle>
 						<View className="flex-row items-center justify-between">
-							<Button variant="outline" size="lg" onPress={decrement}>
+							<Button onPress={decrement} size="lg" variant="outline">
 								<Icon.Feather name="minus" size={20} />
 							</Button>
 							<View className="min-w-16 items-center">
 								<Reanimated
 									as={Text}
-									key={count}
 									duration={200}
-									exiting={direction === 'forward' ? 'slide-down' : 'slide-up'}
 									entering={direction === 'forward' ? 'slide-up' : 'slide-down'}
+									exiting={direction === 'forward' ? 'slide-down' : 'slide-up'}
+									key={count}
 									variant="h2"
 								>
 									{count}
 								</Reanimated>
 							</View>
-							<Button variant="outline" size="lg" onPress={increment}>
+							<Button onPress={increment} size="lg" variant="outline">
 								<Icon.Feather name="plus" size={20} />
 							</Button>
 						</View>

@@ -9,7 +9,7 @@ type UseStorageStateOptions<T> = {
 
 export function useStorageState<T>(
 	key: string,
-	opts: UseStorageStateOptions<T>,
+	opts: UseStorageStateOptions<T>
 ): [T, (newValue: T | ((prev: T) => T)) => Promise<void>] {
 	const { defaultValue } = opts;
 	const [value, setValue] = useState<T>();
@@ -39,7 +39,7 @@ export function useStorageState<T>(
 				setValue(
 					storedValue !== null
 						? (JSON.parse(storedValue) as T)
-						: await resolveDefaultValue(),
+						: await resolveDefaultValue()
 				);
 			} catch (error) {
 				console.info(`⚡[useStorageState.ts:${key}] GET error:`, error);
@@ -78,7 +78,7 @@ export function useStorageState<T>(
 				return nextValue;
 			});
 		},
-		[key, isInitialized],
+		[key, isInitialized]
 	);
 
 	return [value as T, updateValue];

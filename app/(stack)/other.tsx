@@ -13,9 +13,9 @@ export default function DrawerOther() {
 			<View className="flex flex-1 justify-center">
 				<View className="mx-auto size-32">
 					<LottieView
-						source={data?.json}
 						autoPlay
 						resizeMode="cover"
+						source={data?.json}
 						style={{
 							width: '100%',
 							height: '100%',
@@ -23,7 +23,7 @@ export default function DrawerOther() {
 					/>
 				</View>
 				<View className="flex-row items-center justify-center gap-1 py-8">
-					<Icon.Ionicons variant="muted" name="information-circle-outline" />
+					<Icon.Ionicons name="information-circle-outline" variant="muted" />
 					<Text variant="muted">A Sample Lottie component</Text>
 				</View>
 			</View>

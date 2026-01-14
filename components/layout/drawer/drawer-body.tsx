@@ -37,17 +37,17 @@ export function DrawerBody({
 			{drawerItems.map((item) => {
 				return (
 					<DrawerItem
-						key={item.route}
-						label={item.label}
-						focused={currentRoute === item.route}
 						activeTintColor={colors.primary}
-						inactiveTintColor={colors.foreground}
-						onPress={() => handlePress(item.route as Route)}
+						focused={currentRoute === item.route}
 						icon={({ size, color }) => {
 							return (
-								<Icon.Feather name={item.icon} size={size} color={color} />
+								<Icon.Feather color={color} name={item.icon} size={size} />
 							);
 						}}
+						inactiveTintColor={colors.foreground}
+						key={item.route}
+						label={item.label}
+						onPress={() => handlePress(item.route as Route)}
 					/>
 				);
 			})}

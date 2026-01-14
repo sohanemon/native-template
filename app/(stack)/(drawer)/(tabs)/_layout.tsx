@@ -11,7 +11,7 @@ export default function () {
 				options={{
 					title: 'Home',
 					tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-						<Icon.Feather name="home" size={size} color={color} />
+						<Icon.Feather color={color} name="home" size={size} />
 					),
 				}}
 			/>
@@ -20,7 +20,7 @@ export default function () {
 				options={{
 					title: 'Explore',
 					tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-						<Icon.Feather name="compass" size={size} color={color} />
+						<Icon.Feather color={color} name="compass" size={size} />
 					),
 				}}
 			/>
