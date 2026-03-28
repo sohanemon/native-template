@@ -32,12 +32,14 @@ export default function Home() {
 			})}
 		>
 			<Container>
-				<View className="mb-6 py-4">
+				<View className="py-4">
 					<Text className="mb-2 text-primary" variant="h1">
 						Native Template
 					</Text>
 				</View>
-				<Img src={url?.url ?? ''} width={300} />
+				<View className="items-center pb-10">
+					<Img src={url?.url ?? ''} width={100} />
+				</View>
 
 				<Reanimated duration={200} entering="slide-up">
 					<Card className="p-6">
