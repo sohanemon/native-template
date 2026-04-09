@@ -2,6 +2,7 @@ const { getDefaultConfig } = require('expo/metro-config');
 const { withUniwindConfig } = require('uniwind/metro');
 
 /** @type {import('expo/metro-config').MetroConfig} */
+// biome-ignore lint/correctness/noGlobalDirnameFilename: CJS file, __dirname is valid here
 const config = getDefaultConfig(__dirname);
 
 config.transformer.minifierConfig = {
