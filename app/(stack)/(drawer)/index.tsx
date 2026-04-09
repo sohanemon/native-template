@@ -18,7 +18,7 @@ export default function Home() {
 	const { data: url } = api.asset.from.useQuery({
 		path: '/remote/logo.png',
 	});
-	console.info('⚡[index.tsx:18] url:', url);
+
 	const navigation = useNavigation();
 	const isConnected = data?.status === 'OK';
 	const { count, increment, decrement, direction } = useCounter();
