@@ -5,6 +5,8 @@ const { withUniwindConfig } = require('uniwind/metro');
 // biome-ignore lint/correctness/noGlobalDirnameFilename: CJS file, __dirname is valid here
 const config = getDefaultConfig(__dirname);
 
+config.resetCache = true;
+
 config.transformer.minifierConfig = {
 	compress: {
 		drop_console: true,

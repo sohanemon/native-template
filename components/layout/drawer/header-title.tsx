@@ -1,4 +1,5 @@
-import { DrawerActions, useNavigation } from '@react-navigation/native';
+import { useNavigation } from 'expo-router';
+import { DrawerActions } from '@react-navigation/native';
 import { Pressable } from 'react-native';
 import { Text } from '@/components/ui/text';
 
