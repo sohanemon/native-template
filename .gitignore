@@ -57,3 +57,5 @@ expo-env.d.ts
 android
 ios
 A*TS.md
+/android
+/ios
